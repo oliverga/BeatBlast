@@ -1,0 +1,73 @@
+[
+    {
+      "album": "Thriller",
+      "artist": "Michael Jackson",
+      "language": "English",
+      "dato": "1982-11-30",
+      "genre": "Pop",
+      "label": "Epic Records",
+      "sange": [
+        "Wanna Be Startin' Somethin'",
+        "Baby Be Mine",
+        "The Girl Is Mine",
+        "Thriller",
+        "Beat It",
+        "Billie Jean",
+        "Human Nature",
+        "P.Y.T. (Pretty Young Thing)",
+        "The Lady in My Life"
+      ],
+      "spotifylink": "https://open.spotify.com/album/2ANVost0y2y52ema1E9xAZ?si=6NK5p1rKQWGxdhWe-5x_Zw",
+      "billede": "highschoolmusical2.webp",
+      "_id": "1"
+    },
+    {
+      "album": "Back in Black",
+      "artist": "AC/DC",
+      "language": "English",
+      "dato": "1980-07-25",
+      "genre": "Rock",
+      "label": "Atlantic Records",
+      "sange": [
+        "Hells Bells",
+        "Shoot to Thrill",
+        "What Do You Do for Money Honey",
+        "Givin the Dog a Bone",
+        "Let Me Put My Love into You",
+        "Back in Black",
+        "You Shook Me All Night Long",
+        "Have a Drink on Me",
+        "Shake a Leg",
+        "Rock and Roll Ain't Noise Pollution"
+      ],
+      "spotifylink": "https://open.spotify.com/album/6mUdeDZCsExyJLMdAfDuwh?si=_e-o6ZKPQvO_6UhuRWhP6A",
+      "billede": "circles.webp",
+      "_id": "2"
+    },
+    {
+      "album": "OK Computer",
+      "artist": "Radiohead",
+      "language": "English",
+      "dato": "1997-05-28",
+      "genre": "Alternative rock",
+      "label": "Parlophone",
+      "sange": [
+        "Airbag",
+        "Paranoid Android",
+        "Subterranean Homesick Alien",
+        "Exit Music (For a Film)",
+        "Let Down",
+        "Karma Police",
+        "Fitter Happier",
+        "Electioneering",
+        "Climbing Up the Walls",
+        "No Surprises",
+        "Lucky",
+        "The Tourist"
+      ],
+      "spotifylink": "https://open.spotify.com/album/6dVIqQ8qmQ5GBnJ9shOYGE?si=5006a0cf04714507",
+      "billede": "harryshouse.webp",
+      "_id": "3"
+    }
+  ]
+  
