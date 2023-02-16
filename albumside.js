@@ -6,17 +6,18 @@ const options = {
     }
 }
 
-// declare temp url
 const tempUrl = "/temp.json";
 
 
 let coverurl;
 
-let id = "2";
+let id = "3";
 const template = document.querySelector("template");
 const container = document.querySelector(".sang-container");
 
 let spotifyId;
+
+
 
 
 
@@ -35,8 +36,8 @@ function addToDom(data) {
     data.forEach(album => {
         // if _id == id then show album on page
         if (album._id == id) {
-            document.querySelector(".album-cover").src = "covers/" + album.billede;
-            coverurl = "covers/" + album.billede;
+          coverurl = "tempimgs/" + album.billede;
+            document.querySelector(".album-cover").src = coverurl;
             document.querySelector(".album-titel").textContent = album.album;
             document.querySelector(".album-artist").textContent = album.artist;
             // document.querySelector(".spotify-link").href = album.spotifylink;
@@ -44,10 +45,13 @@ function addToDom(data) {
 
             // split album.spotifylink into just spotifyId
             spotifyId = album.spotifylink.split("album/")[1];
-            console.log(spotifyId)
             document.querySelector(".spotify-embed").src = "https://open.spotify.com/embed/album/" + spotifyId + "?utm_source=generator";
             setTimeout(() => {
               document.querySelector(".album-container").style.opacity = "1";
+              // 3dtransform album-container to rotate a bit
+              document.querySelector(".albumcover-container").style.transform = "rotate3d(0, -1, 0, 12deg)";
+              document.querySelector(".albumcover-container").style.scale = "1.07";
+              document.querySelector(".vinyl-record").style.transform = "translate(0px)"; 
             }, 200);
 
             // album.sange.forEach(sang => {
