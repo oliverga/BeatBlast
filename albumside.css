@@ -41,7 +41,6 @@ header li a:hover {
 main {
     margin: 0 auto;
     max-width: 1200px;
-    /* background-color: deeppink; */
 }
 
 h1 {
@@ -51,6 +50,26 @@ h1 {
 h2 {
     font-weight: 200;
     font-size: 1.5rem;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+svg path,
+svg rect{
+  fill: #fff;
 }
 
 /* ALBUM CONTAINER SECTION */
@@ -96,7 +115,7 @@ h2 {
 
 
 .hide {
-    display: none;
+    opacity: 0;
 }
 
 
@@ -190,7 +209,7 @@ h2 {
         height: 23rem;
         align-self: center;
         transform: translate(-50px);
-        transition: all 2.5s ease-in-out;
+        transition: transform 2.5s ease-in-out;
     }
 
     .vinyl-record-base {

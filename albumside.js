@@ -49,6 +49,8 @@ function addToDom(data) {
         setTimeout(() => {
           // document.querySelector(".vinyl-record").classList.remove("hide");
           document.querySelector(".add-to-collection").classList.remove("hide");
+          document.querySelector(".vinyl-record").classList.remove("hide");
+          document.querySelector(".loader").classList.add("hide");
           document.querySelector(".album-container").style.opacity = "1";
           // 3dtransform album-container to rotate a bit
           document.querySelector(".albumcover-container").style.transform = "rotate3d(0, -1, 0, 12deg)";
