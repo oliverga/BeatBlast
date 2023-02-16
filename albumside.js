@@ -1,3 +1,4 @@
+// declare rest api url and api key
 const url = "https://albumliste-d3cb.restdb.io/rest/album";
 const options = {
     headers: {
@@ -5,15 +6,22 @@ const options = {
     }
 }
 
+// declare temp url
 const tempUrl = "/temp.json";
+
 
 let coverurl;
 
-let id = "1";
+let id = "2";
 const template = document.querySelector("template");
 const container = document.querySelector(".sang-container");
 
+let spotifyId;
+
+
+
 async function getJson() {
+    // fetch data from restdb
     const response = await fetch(tempUrl);
     const data = await response.json();
     console.log(data)
@@ -21,21 +29,32 @@ async function getJson() {
     analyzeImageColor();
 }
 
+
+
 function addToDom(data) {
     data.forEach(album => {
-        // if _id == id then show album
+        // if _id == id then show album on page
         if (album._id == id) {
             document.querySelector(".album-cover").src = "covers/" + album.billede;
             coverurl = "covers/" + album.billede;
             document.querySelector(".album-titel").textContent = album.album;
             document.querySelector(".album-artist").textContent = album.artist;
-            document.querySelector(".spotify-link").href = album.spotifylink;
+            // document.querySelector(".spotify-link").href = album.spotifylink;
             console.log(album)
-            album.sange.forEach(sang => {
-                const clone = template.content.cloneNode(true);
-                clone.querySelector(".sang").textContent = sang;
-                container.appendChild(clone);
-            });
+
+            // split album.spotifylink into just spotifyId
+            spotifyId = album.spotifylink.split("album/")[1];
+            console.log(spotifyId)
+            document.querySelector(".spotify-embed").src = "https://open.spotify.com/embed/album/" + spotifyId + "?utm_source=generator";
+            setTimeout(() => {
+              document.querySelector(".album-container").style.opacity = "1";
+            }, 200);
+
+            // album.sange.forEach(sang => {
+            //     const clone = template.content.cloneNode(true);
+            //     clone.querySelector(".sang").textContent = sang;
+            //     container.appendChild(clone);
+            // });
         }
     })
 }
@@ -76,10 +95,8 @@ function analyzeImageColor() {
           mostProminentColor = color;
         }
       }
-
-      console.log(`The most prominent color is ${mostProminentColor}`);
-    //   change body color to most prominent color
-    document.querySelector("body").style.background = `linear-gradient(to bottom, #202020, ${mostProminentColor})`;
+      document.documentElement.style.setProperty('--prominent-color', `${mostProminentColor}`);
+      document.querySelector(".bg").style.opacity = "1";
     }
 }
 

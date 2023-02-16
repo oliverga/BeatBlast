@@ -1,91 +1,209 @@
-/* import nunito from google fonts */
+/* import Inter from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 
 /* general */
 
+:root {
+    --prominent-color: #2d2d2d;
+}
+
 body {
-    background: #202020;
+/* linear gradient from top left corner */
+background-color: #161616;
     color: #fff;
     font-family: "Inter", system-ui;
     font-size: 1rem;
     line-height: 1.5em;
     margin: 0;
     padding: 0;
-    transition: all 0.5s ease;
+    min-height: 100vh;
+}
+
+.bg {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--prominent-color) -300%, #000000 100%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+} 
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    cursor: pointer;
 }
 
 main {
     margin: 0 auto;
-    max-width: 800px;
-    padding: 0 1rem;
+    max-width: 1200px;
+    /* background-color: deeppink; */
 }
 
-section {
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
+h1 {
+    font-family: "utile-display", system-ui;
 }
 
-section:last-of-type {
-    margin-bottom: 10rem;
+.hide {
+    display: none;
 }
 
-.album-heading {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
-    margin-bottom: 1rem;
+.album-container {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-.album-heading h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-top: 5rem;
-    padding: 0;
+.album-cover {
+    width: 24rem;
+    z-index: 99999;
 }
 
-.album-heading h2 {
-    font-size: 1.2rem;
-    font-weight: 200;
-    margin-left: 0.8rem;
-;
+.vinyl-record-base {
+/* make the background a radial gradient going from almost black to dark grey */
+    background: radial-gradient(ellipse at bottom right, #000000 0%, #363636 140%);
+    border-radius: 50%;
+    z-index: -1;;
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-top: 2rem;
+.vinyl-center {
+    background: radial-gradient(ellipse at top, rgb(45, 45, 45) -100%, hsl(0, 0%, 77%) 90%);
 }
 
-li {
-    margin: 0;
-    margin-bottom: 0.1rem;
-    padding: 0;
-    font-weight: 200;
-}
 
-li:last-of-type {
-    margin-bottom: 0;
-}
 
-a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-section img {
-    width: 60%;
-    height: auto;
-    margin-bottom: 1rem;
-    align-self: center;
-    margin-top: 5rem;
+.album-data button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: "Inter", system-ui;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    transform: translateX(-7px);
 }
 
 
 @media (min-width: 800px) {
-    main {
-        padding: 0 2rem;
+    
+    header {
+        max-width: 1600px;
+        margin-top: 2rem;
+        margin-bottom: 10rem;
+        margin-inline: auto;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 2rem;
+        padding: 0 0rem;
+        /* background-color: bisque; */
+    }
+
+    .header-container nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+    }
+
+    .logo img {
+        width: 10rem;
+        /* background-color: aquamarine; */
+    }
+    
+    .album-section {
+        margin-bottom: 18rem;
+        /* background-color: blueviolet; */
+    }
+
+    .album-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        /* background-color: rgb(121, 174, 88); */
+    }
+
+    .albumcover-container {
+        display: grid;
+        grid-template-columns: 12rem 12rem 12rem;
+        /* background-color: rgb(155, 108, 8); */
+    }
+
+    .album-data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .album-titel {
+        font-size: 4rem;
+        margin: 0;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .album-artist {
+        font-size: 1.2rem;
+        font-weight: 100;
+        margin-bottom: 2rem;
+    }
+
+    .album-cover {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        z-index: 99999;
+    }
+    
+    .vinyl-record {
+        position: relative;
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+        aspect-ratio: 1/1;
+        height: 23rem;
+        align-self: center;
+    }
+
+    .vinyl-record-base {
+        aspect-ratio: 1/1;
+        height: 23rem;
+    }
+
+    .vinyl-center {
+        aspect-ratio: 1/1;
+        height: 5rem;
+        border-radius: 50%;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .spotify-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10rem;
+    }
+
+    .spotify-embed {
+        width: 70%;
+        height: 28rem;
     }
 }
