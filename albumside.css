@@ -5,8 +5,7 @@
 
 
 body {
-
-background-color: #161616;
+    background-color: #161616;
     color: #fff;
     font-family: "Inter", system-ui;
     font-size: 1rem;
@@ -70,7 +69,7 @@ h2 {
 .album-cover {
     width: 24rem;
     z-index: 99999;
-    box-shadow: 0 0 20px #ffffff16;
+    /* box-shadow: 0 0 20px #ffffff16; */
 }
 
 .vinyl-record-base {
@@ -80,9 +79,6 @@ h2 {
     z-index: -1;;
 }
 
-.vinyl-center {
-    background: radial-gradient(ellipse at top, rgb(45, 45, 45) -100%, hsl(0, 0%, 77%) 90%);
-}
 
 .add-to-collection {
     background: none;
@@ -95,16 +91,13 @@ h2 {
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     transform: translateX(-7px);
-    transition: all 0.2s ease-in-out;
-}
 
-.add-to-collection:hover {
-    scale: 1.02;
 }
 
 
-
-
+.hide {
+    display: none;
+}
 
 
 @media (min-width: 800px) {
@@ -139,12 +132,10 @@ h2 {
 
     .logo img {
         width: 10rem;
-        /* background-color: aquamarine; */
     }
     
     .album-section {
         margin-bottom: 13rem;
-        /* background-color: blueviolet; */
     }
 
     .album-container {
@@ -152,13 +143,11 @@ h2 {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
-        /* background-color: rgb(121, 174, 88); */
     }
 
     .albumcover-container {
         display: grid;
         grid-template-columns: 12rem 12rem 12rem;
-        /* background-color: rgb(155, 108, 8); */
     }
 
     .album-data {
@@ -172,7 +161,13 @@ h2 {
         font-size: 4rem;
         margin: 0;
         margin-top: 3rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        /* max line length */
+        max-width: 30rem;
+        /* text overflow */
+        text-align: center;
+        line-height: 1.2em;
+
     }
     
     .album-artist {
@@ -214,6 +209,15 @@ h2 {
         transform: translate(-50%, -50%);
     }
 
+    .album-info {
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10rem;
+        margin-top: 2rem;
+        font-weight: 200;
+    }
+
     .spotify-section {
         display: flex;
         flex-direction: column;
@@ -229,16 +233,19 @@ h2 {
     .similar-albums-section h2 {
         margin-bottom: 2rem;
         text-align: center;
+        font-weight: 500;
     }
 
     .similar-albums-list {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        max-width: 1600px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1200px;
         margin-bottom: 10rem;
+        margin-inline: auto;
         list-style: none;
-        flex-wrap: wrap;
+        column-gap: 2rem;
+        row-gap: 4rem;
+        ;
     }
 
     .similar-albums-list img {
