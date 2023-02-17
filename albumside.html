@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://use.typekit.net/ljv0dkm.css">
 </head>
 <body>
-    <template id="template">
-        <li class="sang"></li>
-    </template>
     <header>
         <div class="header-container">
             <a href="index.html" class="logo">
@@ -61,27 +58,31 @@
                 </div>
             </div>
             <!-- <a href="" class="spotify-link hide">Lyt på Spotify</a> -->
-            <div class="album-info">
-                <p>more album stuff</p>
-            </div>
+            <template id="info-template">
+                <li class="info-dato"></li>
+                <li class="info-label"></li>
+                <li class="info-genre"></li>
+                <li class="info-sprog"></li>
+            </template>
+            <ul class="album-info"></ul>
         </section>
         <section class="spotify-section">
             <iframe class="spotify-embed" style="border-radius:12px" src="" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <a href="" class="spotify-link"><img src="svg/spotify.svg" alt=""></a>
         </section> 
-        <template id="similar-album-template">
-            <li>
+        <template id="genre-album-template">
                 <a href="">
                     <img src="" alt="">
                 </a>
-            </li>
         </template>
-        <section class="similar-albums-section">
+        <section class="genre-albums-section">
             <h2>Samme genre</h2>
-                <ul class="similar-albums-list">
-                </ul>
+                <div class="genre-albums-list">
+                </div>
         </section>
-        <div class="bg"></div>
+
     </main>
+    <div class="bg"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.0.1/color-thief.min.js"></script>
     <script src="albumside.js"></script>
 </body>
