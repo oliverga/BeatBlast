@@ -33,10 +33,6 @@ body {
     padding: 0;
 }
 
-main {
-    margin-left: 20px;
-    margin-right: 20px;
-}
 
 /* ------------ Header menu ------------------ */
 
@@ -51,14 +47,98 @@ header li a:hover {
     scale: 1.02;
 }
 
+/* ----------------- Anbefalede Albums -------------- */
+.anbefalinger {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+h1{
+    justify-content: center;
+
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    margin-bottom: 30px;
+}
+
+.card img {
+    margin-bottom: 15px;
+}
+
+.card a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.card h3 {
+    font-weight: 300;
+    font-size: 0.7rem;
+    line-height: 1rem;
+}
+
+.card_artist {
+    font-size: 0.5rem;
+    font-weight: 300;
+    line-height: 0.5rem;
+}
+
+.card {
+    min-width: 150px;
+    max-width: 260px;
+    
+    scroll-snap-align: start;
+}
+
+.anbefalinger_cards {
+    margin-top: 20px;
+    padding-bottom: 20px;
+
+    display: flex;
+    gap: 20px;
+
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.card a>div {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+
+    align-content: center;
+}
+
+.card_number {
+    font-size: 2rem;
+}
+
+
+/* scroll bar */
+ .anbefalinger_cards::-webkit-scrollbar {
+    display: none;
+ }
+  
+
+
+
 /* ----------------- filtrer efter genre ----------- */
 
+.filter_genre{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 h2 {
-    font-weight: 200;
+    font-weight: 400;
     font-size: 1.5rem;
 
     text-align: center;
 
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -93,6 +173,8 @@ h2 {
 /* ----------------- Album Liste -------------------- */
 
 .album_liste {
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 60px;
 
     display: grid;
@@ -171,7 +253,7 @@ h2 {
     header {
         max-width: 1600px;
         margin-top: 2rem;
-        margin-bottom: 10rem;
+        margin-bottom: 4rem;
         margin-inline: auto;
     }
 
@@ -198,6 +280,49 @@ h2 {
 
     .logo img {
         width: 10rem;
+    }
+
+    /* ---------------- Anbefalede Albums -------------- */
+    .anbefalinger{
+        margin-top: 150px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .anbefalinger_cards {
+        justify-content: center;
+
+        gap: 80px;
+    }
+
+    .card_number{
+        font-size: 3rem;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .card_artist {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
+    /* ----------------- filtrer efter genre ----------- */
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
+    .filter_genre ul {
+        column-gap: 25px;
+    }
+    
+    .filter_genre a {
+        font-size: 1.3rem;
+        border: 1.5px solid var(--main-color);
     }
 
     /* --------------- Album Liste ----------------- */
