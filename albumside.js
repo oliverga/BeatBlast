@@ -21,10 +21,9 @@ const template = document.querySelector("#genre-album-template");
 const colorThief = new ColorThief();
 
 
-
 async function getData() {
     // fetch data from restdb
-    const response = await fetch(tempUrl);
+    const response = await fetch(apiUrl, options);
     const data = await response.json();
     console.log(data)
     // call function to add data to DOM
@@ -33,7 +32,7 @@ async function getData() {
 
 async function getGenreAlbums() {
   // fetch data from restdb
-  const response = await fetch(tempUrl);
+  const response = await fetch(apiUrl, options);
   const data = await response.json();
   console.log(data)
   // call function to add data to DOM
@@ -62,7 +61,7 @@ function addGenreAlbums(data) {
 
 function addToDom(data) {
   // loop through data //timeout is temporary in order to simulate loading time
-  setTimeout(() => {
+  // setTimeout(() => {
     data.forEach(album => {
       // if _id == id then show album on page
       if (album._id == id) {
@@ -109,12 +108,12 @@ function addToDom(data) {
           document.querySelector(".albumcover-container").style.transform = "rotate3d(0, 1, 0, 6deg)";
           document.querySelector(".albumcover-container").style.scale = "1.07";
           document.querySelector(".vinyl-record").style.transform = "translate(0px)"; 
-        }, 800);
+        }, 100);
         // call function to get similar albums with genre and id as parameters
         getGenreAlbums();
       }
     })
-  }, 900);
+  // }, 870);
   // call function to get similar albums
 
 }
