@@ -247,6 +247,8 @@ svg rect{
     .spotify-embed {
         width: 70%;
         height: 28rem;
+        opacity: 0;
+        transition: opacity 800ms ease-in-out;
     }
 
     .similar-albums-section h2 {

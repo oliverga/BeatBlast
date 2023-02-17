@@ -18,7 +18,7 @@ const colorThief = new ColorThief();
 
 async function getJson() {
     // fetch data from restdb
-    const response = await fetch(apiUrl, options);
+    const response = await fetch(tempUrl);
     const data = await response.json();
     console.log(data)
     addToDom(data);
@@ -28,6 +28,7 @@ async function getJson() {
 // add data to DOM
 function addToDom(data) {
   // loop through data
+  setTimeout(() => {
     data.forEach(album => {
       // if _id == id then show album on page
       if (album._id == id) {
@@ -52,11 +53,12 @@ function addToDom(data) {
           document.querySelector(".vinyl-record").classList.remove("hide");
           document.querySelector(".loader").classList.add("hide");
           document.querySelector(".album-container").style.opacity = "1";
+          document.querySelector(".spotify-embed").style.opacity = "1";
           // 3dtransform album-container to rotate a bit
-          document.querySelector(".albumcover-container").style.transform = "rotate3d(0, -1, 0, 12deg)";
+          document.querySelector(".albumcover-container").style.transform = "rotate3d(0, 1, 0, 6deg)";
           document.querySelector(".albumcover-container").style.scale = "1.07";
           document.querySelector(".vinyl-record").style.transform = "translate(0px)"; 
-        }, 200);
+        }, 800);
       }
 
       // tilføj logik til at tjekke om album er i samme genre som det album der er åbnet
@@ -68,6 +70,7 @@ function addToDom(data) {
         document.querySelector(".similar-albums-list").appendChild(clone);
       }
     })
+  }, 900);
 }
 
 const coverImg = new Image();
