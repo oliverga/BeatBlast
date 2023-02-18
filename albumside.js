@@ -87,14 +87,12 @@ function addToDom(data) {
         document.querySelector(".spotify-link").href = "https://open.spotify.com/album/" + spotifyId + "?utm_source=generator&theme=0";
 
         // clone template and add to .album-info
-        const infoClone = document.querySelector("#info-template").content.cloneNode(true);
         let date = album.dato.split("T")[0];
-        infoClone.querySelector(".info-dato").textContent = date;
-        infoClone.querySelector(".info-label").textContent = album.label;
-        infoClone.querySelector(".info-genre").textContent = album.genre;
-        infoClone.querySelector(".info-sprog").textContent = album.sprog;
-        // append
-        document.querySelector(".album-info").appendChild(infoClone);
+        document.querySelector(".info-dato").textContent = date;
+        document.querySelector(".info-label").textContent = album.label;
+        document.querySelector(".info-genre").textContent = album.genre;
+        document.querySelector(".info-sprog").textContent = album.sprog;
+
         displayAnimation();
         checkCollection();
         // return data so it can be used in other functions
@@ -121,7 +119,7 @@ function displayAnimation() {
   else if (window.innerWidth < 800) {
     document.querySelector(".vinyl-record").animate(
       [
-        {transform: "translatey(50px)"},
+        {transform: "translatey(40px)"},
         {transform: "translatey(0px)"}
       ],
       {
@@ -131,6 +129,20 @@ function displayAnimation() {
       }
     )
   }
+  // animate .viny-record-base to rotate continuously
+  document.querySelector(".vinyl-record-base").animate(
+    [
+      {transform: "rotate(0deg)"},
+      {transform: "rotate(360deg)"}
+    ],
+    {
+      duration: 6200,
+      easing: "linear",
+      iterations: Infinity
+    }
+  )
+
+
   document.querySelector(".albumcover-container").animate(
     [
       {transform: "scale(0.90)"},
@@ -158,6 +170,11 @@ function displayAnimation() {
   }, 300);
 
 }
+
+// if button with data-testid="play-pause-button" is clicked then add album to collection
+document.querySelector("button").addEventListener("click", () => {
+  console.log("clicked");
+})
 
 // ColorThief stuff
 const coverImg = new Image();
@@ -217,7 +234,7 @@ function checkCollection() {
   }
 }
 
-// add event listener to button and check if album is in collection array
+// add event listener to button and check if album is in collection array and add or remove it
 document.querySelector(".add-to-collection").addEventListener("click", () => {
   // check if album is in collection array
   if (collection.includes(id)) {
@@ -308,9 +325,73 @@ document.querySelector(".add-to-collection").addEventListener("click", () => {
   return;
 })
 
-// when page is loaded, call checkLocalStorage
-window.onload = (event) => {
-  checkLocalStorage();
+// note animation stuff
+const note1Template = document.querySelector('#note1-template');
+const note2Template = document.querySelector('#note2-template');
+const notesContainer = document.querySelector('.music-notes-container');
+const numNotes = 4;
+
+function createNotesFromTemplate() {
+  for(let i = 0; i < numNotes; i++) {
+    const note1 = document.importNode(note1Template.content, true);
+    const note2 = document.importNode(note2Template.content, true);
+    const containerWidth = notesContainer.getBoundingClientRect().width;
+    let randomX;
+    // if screenwidth is more than 800px 
+    if (window.innerWidth > 800) {
+      randomX = Math.floor(Math.random() * (containerWidth / 2)) + (containerWidth / 2);
+    }
+    else {
+      // make randomx 2/3 width of container and centered
+      randomX = Math.floor(Math.random() * (containerWidth / 3)) + (containerWidth / 3);
+    }
+    console.log(randomX)
+    note1.querySelector('.music-note').style.left = randomX;
+    note2.querySelector('.music-note').style.left = randomX;
+    notesContainer.appendChild(note1);
+    notesContainer.appendChild(note2);
+  }
+  animateNotes();
 }
+
+// function to animate notes from down to up infinitely with random delay
+function animateNotes() {
+  const notes = document.querySelectorAll('.music-note');
+  notes.forEach(note => {
+    const randomDelay = Math.floor(Math.random() * 100);
+    note.animate(
+      [
+        {transform: `translateY(80px) rotate(0deg)`},
+        {transform: `translateY(-60px) rotate(` + Math.floor(Math.random() * 45) + `deg)`}
+      ],
+      {
+        duration: 2000,
+        delay: randomDelay * 100,
+        easing: "linear",
+        iterations: Infinity
+      }
+    )
+    note.animate(
+      [
+        {opacity: "0"},
+        {opacity: "1"},
+        {opacity: "1"},
+        {opacity: "0"},
+      ],
+      {
+        duration: 2000,
+        delay: randomDelay * 100,
+        easing: "linear",
+        iterations: Infinity
+      }
+    )
+  })
+}
+
+
+createNotesFromTemplate();
+
+checkLocalStorage();
+
 
 setInterval(fetchData, 60 * 60 * 1000); // fetch new data every hour

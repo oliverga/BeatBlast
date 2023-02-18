@@ -28,7 +28,7 @@ body {
 header {
     max-width: 80vw;
     margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
     margin-inline: auto;
 }
 
@@ -67,6 +67,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     pointer-events: none;
     font-weight: 400;
     font-size: small;
@@ -95,9 +96,33 @@ h2 {
     pointer-events: none;
 }
 
-svg path,
-svg rect{
-  fill: #fff;
+.loader svg path,
+.loader svg rect{
+  fill: var(--color2);
+}
+
+.music-notes-container svg {
+    width: 2.5%;
+    object-fit: contain;
+    transform: translateY(-140%);
+    position: absolute;
+    left: 75%;
+    z-index: -99999999;
+    pointer-events: none;
+    aspect-ratio: 1/1;
+    opacity: 0;
+}
+
+.note1 {
+    scale: 2;;
+}
+
+.note2 {
+    scale: 2;
+}
+
+.music-notes-container svg path, .music-notes-container svg rect {
+    fill: var(--color2);
 }
 
 .header-container {
@@ -151,7 +176,7 @@ svg rect{
 }
 
 .album-cover {
-    width: 70vw;
+    width: 60vw;
     z-index: 99999;
     justify-self: center;
     grid-row: -3 / -1;
@@ -173,15 +198,15 @@ svg rect{
 
 .vinyl-record-base {
     aspect-ratio: 1/1;
-    height: 65vw;
-    background: radial-gradient(ellipse at bottom right, #000000 0%, #363636 140%);
+    height: 55vw;
+    background: radial-gradient(ellipse at bottom right, #000000 0%, #313131 140%);
     border-radius: 50%;
-    z-index: -1;;
+    z-index: -99;
 }
 
 .vinyl-center {
     aspect-ratio: 1/1;
-    height: 20vw;
+    height: 23vw;
     border-radius: 50%;
     z-index: 2;
     position: absolute;
@@ -195,7 +220,7 @@ svg rect{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem 2rem;
+    margin: 0rem 2rem;
     padding: 0 0rem;
 }
 

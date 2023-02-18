@@ -39,12 +39,26 @@
       </div>
       <div class="popup"></div>
     <main>
-
         <section class="album-section">
             <div class="album-container">
                 <div class="albumcover-container">
                     <img class="album-cover" src="" alt="">
                     <div class="vinyl-record">
+                        <template id="note1-template">
+                            <svg class="music-note note1" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.68 94.08">
+                                <g id="Layer_1-2" data-name="Layer 1">
+                                  <path d="m21.08,93.19c5.8-1.37,10.55-4.16,10.55-16.18,0-23.74.01-47.48-.02-71.21,0-2.67.87-5.71-3.79-5.79-4.93-.09-4.1,3.1-4.1,5.98-.01,19.12,0,38.24,0,57.37,0,7.56-.27,7.61-7.68,8.11-3.21.21-6.56.98-9.46,2.32-3.89,1.8-6.79,3.75-6.56,9.3.2,4.92,3.19,8.2,6.45,9.42,4.41,1.65,8.13,2.22,14.62.68Z"/>
+                                </g>
+                            </svg>
+                        </template>
+                        <template id="note2-template">
+                            <svg class="music-note note2" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.18 87.07">
+                                <g id="Layer_1-2" data-name="Layer 1">
+                                  <path d="m80.13,24.42c-16.29,2.84-31.85,5.56-48,8.38,0,1.76,0,3.52,0,5.29,0,11.71-.14,23.42.05,35.13.1,6.17-2.95,9.97-8.34,12.17-6.82,2.78-13.47,2.19-19.35-2.31-5.91-4.51-6.11-11.77.09-15.8,3.53-2.3,8.22-3.4,12.52-3.88,6.35-.71,7.02-.89,7.03-7.4.01-13.03.21-26.06-.1-39.08-.12-4.98,1.69-7.09,6.55-7.88C47.66,6.24,64.68,3.15,81.73.21c4.53-.78,6.35.58,6.36,5.06.06,20.45.21,40.9-.18,61.34-.06,2.98-2.24,6.62-4.58,8.71-5.74,5.14-16.15,4.91-22.36.29-6.47-4.82-6.69-12.7.24-16.79,3.64-2.15,8.38-2.98,12.72-3.34,4.4-.37,6.35-1.75,6.25-6.24-.18-8.06-.05-16.12-.05-24.82Z"/>
+                                </g>
+                            </svg>
+                        </template>
+                        <div class="music-notes-container"></div>
                         <div class="vinyl-center"></div>
                         <img class="vinyl-record-base" src="svg/vinyl-rings.svg" alt="">
                     </div>
@@ -55,14 +69,12 @@
                     <button class="add-to-collection not-added">Tilføj til Collection</button>
                 </div>
             </div>
-            <!-- <a href="" class="spotify-link hide">Lyt på Spotify</a> -->
-            <template id="info-template">
+            <ul class="album-info">
                 <li class="info-dato"></li>
                 <li class="info-label"></li>
                 <li class="info-genre"></li>
                 <li class="info-sprog"></li>
-            </template>
-            <ul class="album-info"></ul>
+            </ul>
         </section>
         <section class="spotify-section">
             <iframe class="spotify-embed" style="border-radius:12px" src="" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
