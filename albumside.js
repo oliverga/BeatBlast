@@ -13,6 +13,7 @@ let spotifyId;
 let albumGenre;
 const template = document.querySelector("#genre-album-template");
 const localData = JSON.parse(localStorage.getItem("albumData"));
+let collection = [];
 
 async function fetchData() {
   const response = await fetch(apiUrl, options);
@@ -67,6 +68,7 @@ function addToDom(data) {
     data.forEach(album => {
       // if _id == id then show album on page
       if (album._id == id) {
+        document.title = album.album;
         albumGenre = album.genre;
         // split album.billede into just filename and add to coverurl
         coverurl = "tempimgs/" + album.billede;
@@ -94,6 +96,7 @@ function addToDom(data) {
         // append
         document.querySelector(".album-info").appendChild(infoClone);
         displayAnimation();
+        checkCollection();
         // return data so it can be used in other functions
         addGenreAlbums(data);
       }
@@ -103,17 +106,32 @@ function addToDom(data) {
 
 function displayAnimation() {
   document.querySelector(".loader").classList.add("hide");
-  document.querySelector(".vinyl-record").animate(
-    [
-      {transform: "translatex(-50px)"},
-      {transform: "translatex(0px)"}
-    ],
-    {
-      duration: 2600,
-      easing: "ease-out",
-      fill: "forwards"
-    }
-  )
+    if (window.innerWidth > 800) {
+    document.querySelector(".vinyl-record").animate(
+      [
+        {transform: "translatex(-50px)"},
+        {transform: "translatex(0px)"}
+      ],
+      {
+        duration: 2600,
+        easing: "ease-out",
+        fill: "forwards"
+      }
+    )
+  }
+  else if (window.innerWidth < 800) {
+    document.querySelector(".vinyl-record").animate(
+      [
+        {transform: "translatey(50px)"},
+        {transform: "translatey(0px)"}
+      ],
+      {
+        duration: 2600,
+        easing: "ease-out",
+        fill: "forwards"
+      }
+    )
+  }
   document.querySelector(".albumcover-container").animate(
     [
       {transform: "scale(0.90)"},
@@ -126,7 +144,6 @@ function displayAnimation() {
     }
   )
   setTimeout(() => {
-    // document.querySelector("main").classList.remove("hide");
     document.querySelector("main").animate(
       [
         {opacity: "0"},
@@ -162,6 +179,124 @@ coverImg.onload = function() {
   document.querySelector(".vinyl-center").style.background = `radial-gradient(circle at 50% 50%, var(--color4) 0%, var(--color2) 100%)`;
 
 };
+
+// collection stuff
+function checkCollection() {
+  // check if collection array is in local storage
+  if (localStorage.getItem("collection")) {
+    // if so, add data to collection array
+    collection = JSON.parse(localStorage.getItem("collection"));
+    // check if album is in collection array
+    if (collection.includes(id)) {
+      // if so, change button text and add class "added"
+      document.querySelector(".add-to-collection").classList.add("added");
+      document.querySelector(".add-to-collection").textContent = "Fjern fra Collection";
+      document.querySelector(".add-to-collection").classList.remove("not-added");
+    }
+    else {
+      // if not, add class "not-added" and change button text to "Tilføj til Collection" and remove class "added"
+      document.querySelector(".add-to-collection").classList.add("not-added");
+      document.querySelector(".add-to-collection").textContent = "Tilføj til Collection";
+      document.querySelector(".add-to-collection").classList.remove("added");
+    }
+  }
+  else {
+    // if not add collection array to local storage
+    console.log("collection array is not in local storage")
+    localStorage.setItem("collection", JSON.stringify(collection));
+  }
+}
+
+// add event listener to button and check if album is in collection array
+document.querySelector(".add-to-collection").addEventListener("click", () => {
+  // check if album is in collection array
+  if (collection.includes(id)) {
+    // if so, remove album from collection array
+    collection.splice(collection.indexOf(id), 1);
+    // change button text and remove class "added"
+    document.querySelector(".add-to-collection").classList.remove("added");
+    document.querySelector(".add-to-collection").textContent = "Tilføj til Collection";
+    document.querySelector(".add-to-collection").classList.add("not-added");
+    // update collection array in local storage
+    localStorage.setItem("collection", JSON.stringify(collection));
+    console.log("Album removed from collection");
+        // alert user that album has been removed to collection with a popup
+        document.querySelector(".popup").textContent = "Album fjernet fra Collection";
+        document.querySelector(".popup").animate(
+          [
+            {opacity: "0"},
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "0"}
+          ],
+          {
+            duration: 2600,
+            easing: "ease-in-out",
+            fill: "forwards"
+          }
+        )
+    // animate button
+    document.querySelector(".add-to-collection").animate(
+      [
+        {transform: "scale(0.94)"},
+        {transform: "scale(1)"}
+      ],
+      {
+        duration: 200,
+        easing: "ease-out",
+        fill: "forwards"
+      }
+    )
+  }
+  else {
+    // if not, add album to collection array
+    collection.push(id);
+    // change button text and add class "added"
+    document.querySelector(".add-to-collection").classList.add("added");
+    document.querySelector(".add-to-collection").textContent = "Fjern fra Collection";
+    document.querySelector(".add-to-collection").classList.remove("not-added");
+    // update collection array in local storage
+    localStorage.setItem("collection", JSON.stringify(collection));
+    console.log("Album added to collection");
+    // alert user that album has been added to collection with a popup
+    document.querySelector(".popup").textContent = "Album tilføjet til Collection";
+    document.querySelector(".popup").animate(
+      [
+        {opacity: "0"},
+        {opacity: "1"},
+        {opacity: "1"},
+        {opacity: "1"},
+        {opacity: "1"},
+        {opacity: "1"},
+        {opacity: "1"},
+        {opacity: "1"},
+        {opacity: "0"}
+      ],
+      {
+        duration: 2600,
+        easing: "ease-in-out",
+        fill: "forwards"
+      }
+    )
+    document.querySelector(".add-to-collection").animate(
+      [
+        {transform: "scale(0.94)"},
+        {transform: "scale(1)"}
+      ],
+      {
+        duration: 200,
+        easing: "ease-out",
+        fill: "forwards"
+      }
+    )
+  }
+  return;
+})
 
 // when page is loaded, call checkLocalStorage
 window.onload = (event) => {

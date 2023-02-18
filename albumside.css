@@ -59,6 +59,26 @@ h2 {
     font-size: 1.5rem;
 }
 
+.popup {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    font-weight: 400;
+    font-size: small;
+    color: var(--color2);
+    background-color: var(--color1);;
+    padding: 0.6rem 1rem;
+    opacity: 0;
+    border-radius: 5px;
+
+}
+
 /* LOADING ICON */
 
 .loader {
@@ -204,8 +224,16 @@ svg rect{
     font-size: 0.9rem;
     font-weight: 300;
     margin: 0.8rem;
-    transform: translateX(-7px);
+    transform: translateX(-4px); 
 
+}
+
+.added::before{
+    content: "✓ "
+}
+
+.not-added::before{
+    content: "+ "
 }
 
 .album-info {
@@ -252,11 +280,6 @@ display: none;
     opacity: 0;
 }
 
-
-
-.genre-albums-section {
-    transition: opacity 800ms ease-in-out;
-}
 
 .genre-albums-section h2 {
     margin-bottom: 2rem;
