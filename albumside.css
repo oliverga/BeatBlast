@@ -98,7 +98,7 @@ h2 {
 
 .loader svg path,
 .loader svg rect{
-  fill: var(--color2);
+  fill: #fff;
 }
 
 .music-notes-container svg {
