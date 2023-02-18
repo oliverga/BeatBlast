@@ -105,7 +105,6 @@ function addToDom(data) {
 }
 
 function displayAnimation() {
-  document.querySelector(".loader").classList.add("hide");
     if (window.innerWidth > 800) {
     document.querySelector(".vinyl-record").animate(
       [
@@ -144,18 +143,19 @@ function displayAnimation() {
     }
   )
   setTimeout(() => {
+    document.querySelector(".loader").classList.add("hide");
     document.querySelector("main").animate(
       [
         {opacity: "0"},
         {opacity: "1"}
       ],
       {
-        duration: 1000,
+        duration: 750,
         easing: "ease-in-out",
         fill: "forwards"
       }
     )
-  }, 100);
+  }, 300);
 
 }
 
@@ -173,7 +173,17 @@ coverImg.onload = function() {
 
   // add gradient to background and set opacity to 1
   document.querySelector(".bg").style.background = `linear-gradient(135deg, var(--color1) -50%, rgb(0, 0, 0) 120%)`;
-  document.querySelector(".bg").style.opacity = "1";
+  document.querySelector(".bg").animate (
+    [
+      {opacity: "0"},
+      {opacity: "1"}
+    ],
+    {
+      duration: 1400,
+      easing: "ease-in-out",
+      fill: "forwards"
+    }
+  )
   
   // give .vinyl-center a background radial gradient with 2 of the colors from the palette
   document.querySelector(".vinyl-center").style.background = `radial-gradient(circle at 50% 50%, var(--color4) 0%, var(--color2) 100%)`;

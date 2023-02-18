@@ -58,7 +58,7 @@ function displayCollection(data) {
         {opacity: "1"}
       ],
       {
-        duration: 1000,
+        duration: 550,
         easing: "ease-in-out",
         fill: "forwards"
       }
