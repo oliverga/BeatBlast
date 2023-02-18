@@ -50,7 +50,7 @@ function addGenreAlbums(data) {
     // if album.genre == albumGenre && album._id != id then show album on page
     if (album.genre == albumGenre && album._id != id) {
       // split album.billede into just filename
-      let genreCoverUrl = "tempimgs/" + album.billede.split(".")[0] + ".jpg";
+      let genreCoverUrl = "tempimgs/" + album.billede;
       // clone template and add to .similar-albums
       const clone = template.content.cloneNode(true);
       clone.querySelector("img").src = genreCoverUrl;
@@ -69,7 +69,7 @@ function addToDom(data) {
       if (album._id == id) {
         albumGenre = album.genre;
         // split album.billede into just filename and add to coverurl
-        coverurl = "tempimgs/" + album.billede.split(".")[0] + ".jpg";
+        coverurl = "tempimgs/" + album.billede;
 
         // set coverImg src to coverurl for colorThief
         coverImg.src = coverurl;
