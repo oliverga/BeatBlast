@@ -47,6 +47,7 @@ header li a:hover {
 main {
     margin: 0 auto;
     max-width: 1200px;
+    opacity: 0;
 }
 
 h1 {
@@ -122,22 +123,6 @@ svg rect{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.albumcover-container {
-    transition: all 2s ease-in-out;
-    transform: rotate3d(0, 0, 0, 0deg);
-    
-}
-
-
-.album-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
 }
 
 .albumcover-container {
@@ -163,8 +148,6 @@ svg rect{
     aspect-ratio: 1/1;
     align-self: center;
     justify-self: center;
-    transform: translatey(50px);
-    transition: transform 2.5s ease-in-out;
 }
 
 
@@ -238,7 +221,6 @@ svg rect{
 
 
     color: #ffffffc1;
-    opacity: 0;
     transition: opacity 1s ease-in-out, transform 2s ease-out;
     transform: translateY(-5px);
 }
@@ -248,7 +230,6 @@ svg rect{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0;
     transition: opacity 800ms ease-in-out;
 }
 
@@ -274,7 +255,6 @@ display: none;
 
 
 .genre-albums-section {
-    opacity: 0;
     transition: opacity 800ms ease-in-out;
 }
 
@@ -400,8 +380,6 @@ display: none;
         aspect-ratio: 1/1;
         height: 23rem;
         align-self: center;
-        transform: translate(-50px);
-        transition: transform 2.5s ease-in-out;
     }
 
     .vinyl-record-base {
@@ -452,7 +430,6 @@ display: none;
         margin-top: 7rem;
         font-weight: 200;
         color: #ffffffc1;
-        opacity: 0;
         transition: opacity 1s ease-in-out, transform 2s ease-out;
         list-style: none;
         transform: translateY(-5px);
@@ -463,8 +440,6 @@ display: none;
         flex-direction: column;
         align-items: center;
         margin-bottom: 10rem;
-        opacity: 0;
-        transition: opacity 800ms ease-in-out;
     }
 
     .spotify-embed {
@@ -475,11 +450,6 @@ display: none;
 
     .spotify-link {
         display: none;
-    }
-
-    .genre-albums-section {
-        opacity: 0;
-        transition: opacity 800ms ease-in-out;
     }
 
     .genre-albums-section h2 {

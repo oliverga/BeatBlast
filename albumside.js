@@ -22,7 +22,6 @@ async function fetchData() {
     localStorage.setItem("albumData", JSON.stringify(data));
     console.log("Data updated in local storage");
   }
-
   return data;
 }
 
@@ -94,28 +93,53 @@ function addToDom(data) {
         infoClone.querySelector(".info-sprog").textContent = album.sprog;
         // append
         document.querySelector(".album-info").appendChild(infoClone);
-
-        // data animations and stuff, going to fix this later using css animations
-        setTimeout(() => {
-          document.querySelector(".loader").classList.add("hide");
-          document.querySelector(".add-to-collection").classList.remove("hide");
-          document.querySelector(".vinyl-record").classList.remove("hide");
-          document.querySelector(".album-container").style.opacity = "1";
-          document.querySelector(".spotify-section").style.opacity = "1";
-          document.querySelector(".album-info").style.opacity = "1";
-          document.querySelector(".album-info").style.transform = "translate(0px)";
-          document.querySelector(".genre-albums-section").style.opacity = "1";
-          
-          // 3dtransform album-container to rotate and scale a bit
-          document.querySelector(".albumcover-container").style.transform = "rotate3d(0, 1, 0, 6deg)";
-          document.querySelector(".albumcover-container").style.scale = "1.07";
-          document.querySelector(".vinyl-record").style.transform = "translate(0px)"; 
-        }, 500);
+        displayAnimation();
         // return data so it can be used in other functions
         addGenreAlbums(data);
       }
     })
-  }, 900);
+  }, 000);
+}
+
+function displayAnimation() {
+  document.querySelector(".loader").classList.add("hide");
+  document.querySelector(".vinyl-record").animate(
+    [
+      {transform: "translatex(-50px)"},
+      {transform: "translatex(0px)"}
+    ],
+    {
+      duration: 2600,
+      easing: "ease-out",
+      fill: "forwards"
+    }
+  )
+  document.querySelector(".albumcover-container").animate(
+    [
+      {transform: "scale(0.90)"},
+      {transform: "scale(1)"}
+    ],
+    {
+      duration: 2000,
+      easing: "ease-out",
+      fill: "forwards"
+    }
+  )
+  setTimeout(() => {
+    // document.querySelector("main").classList.remove("hide");
+    document.querySelector("main").animate(
+      [
+        {opacity: "0"},
+        {opacity: "1"}
+      ],
+      {
+        duration: 1000,
+        easing: "ease-in-out",
+        fill: "forwards"
+      }
+    )
+  }, 100);
+
 }
 
 // ColorThief stuff
