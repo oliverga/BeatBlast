@@ -327,7 +327,8 @@ h2 {
 
     /* --------------- Album Liste ----------------- */
     .album_liste{
-        margin-top: 70px;
+        margin-top: 90px;
+        row-gap: 60px;
 
         grid-template-columns: repeat(auto-fill, minmax(150px, 230px));
     }
