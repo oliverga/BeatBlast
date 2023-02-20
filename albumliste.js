@@ -181,5 +181,5 @@ function topAlbum(data) {
 
 checkLocalStorage();
 knapAlle.addEventListener("click", klikAlle);
-setInterval(fetchData, 1 * 60 * 1000);
+setInterval(fetchData, 60 * 60 * 1000);
     
