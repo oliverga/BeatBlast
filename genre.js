@@ -46,6 +46,8 @@ function displayGenre(data) {
             const clone = template.content.cloneNode(true);
             clone.querySelector("img").src = "tempimgs/" + album.billede;
             clone.querySelector("a").href = "albumside.html?id=" + album._id;
+            clone.querySelector(".album-titel").textContent = album.album;
+            clone.querySelector(".album-artist").textContent = album.artist;
             container.appendChild(clone);
         }
     })
