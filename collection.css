@@ -122,11 +122,19 @@ h2 {
 
 .collection-container a {
     text-decoration: none;
-    transition: scale 1s ease-in-out;
+    transition: scale 1.2s ease-in-out, opacity 0.8s ease-in-out;
 }
 
 .collection-container a:hover {
-    scale: 1.03;
+    scale: 1.04;
+}
+
+.collection-container:has(a:hover) a:not(:hover) ~ p {
+    opacity: 0.5;
+}
+
+.collection-container:has(a:hover) a:not(:hover) {
+    opacity: 0.5;
 }
 
 .album-card {
@@ -141,11 +149,13 @@ h2 {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: -0.5rem;
+    transition: opacity 0.8s ease-in-out;
 }
 
 .album-artist {
     font-size: 0.8rem;
     font-weight: 200;
+    transition: opacity 0.8s ease-in-out;
 }
 
 

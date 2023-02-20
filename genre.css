@@ -140,11 +140,40 @@ h2 {
 
 .genre-container a {
     text-decoration: none;
-    transition: scale 1s ease-in-out;
+    transition: scale 1.2s ease-in-out, opacity 0.8s ease-in-out;
 }
 
 .genre-container a:hover {
-    scale: 1.03;
+    scale: 1.04;
+}
+
+.genre-container:has(a:hover) a:not(:hover) ~ p {
+    opacity: 0.5;
+}
+
+.genre-container:has(a:hover) a:not(:hover) {
+    opacity: 0.5;
+}
+
+.album-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 1rem;
+    opacity: 0;
+}
+
+.album-titel {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: -0.5rem;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.album-artist {
+    font-size: 0.8rem;
+    font-weight: 200;
+    transition: opacity 0.8s ease-in-out;
 }
 
 @media (min-width: 800px) {
