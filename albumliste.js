@@ -2,7 +2,9 @@ console.log("Test af Konsol");
 
 const tempURL = "/temp.json";
 const localData = JSON.parse(localStorage.getItem("albumData"));
+const knapAlle = document.querySelector("#all_albums");
 
+let cardNr = 0;
 let artikler
 
 
@@ -31,9 +33,10 @@ async function fetchData() {
     if (localData) {
       console.log("Data retrieved from local storage");
       // if so, add data to DOM
-      vis(localData);
+        vis(localData);
         addGenreButtons(localData);
         filterGenre(localData);
+        topAlbum(localData);
     }
     else {
       // if not, fetch data from API
@@ -43,16 +46,16 @@ async function fetchData() {
       localStorage.setItem("albumData", JSON.stringify(latestData));
       console.log("Data updated in local storage");
       // add data to DOM
-      vis(latestData);
+        vis(latestData);
         addGenreButtons(latestData);
         filterGenre(latestData);
+        topAlbum(latestData);
     }
   }
 
 
 function vis(data) {
     console.log("Vis localData");
-    console.log(localData)
 
     const beholder = document.querySelector(".album_liste");
     const skabelon = document.querySelector("#skabelon").content;
@@ -72,7 +75,6 @@ function vis(data) {
         beholder.appendChild(klon);
 
         artikler = document.querySelectorAll("article");
-        console.log(artikler);
     });
 }
 
@@ -82,10 +84,17 @@ function filterGenre(data) {
 
     document.querySelectorAll("button").forEach(knap => {
         knap.addEventListener("click", () => {
+            const knapper = document.querySelectorAll("button");
+            knapper.forEach(knap =>{
+                knap.classList.remove("knap_active");
+            })
+            knap.classList.add("knap_active");
+
             let genre = knap.textContent;
 
             const beholder = document.querySelector(".album_liste");
             const skabelon = document.querySelector("#skabelon").content;
+
 
             artikler = document.querySelectorAll("article");
             artikler.forEach(artikel => artikel.remove());
@@ -106,6 +115,7 @@ function filterGenre(data) {
         
 
                     beholder.appendChild(klon);
+                    
                 }
 
             });
@@ -113,7 +123,8 @@ function filterGenre(data) {
     })
 }
 
-function addGenreButtons(data) {  
+function addGenreButtons(data) { 
+     
     //create array to hold genres 
     let genres = [];  
     //loop through data 
@@ -126,11 +137,49 @@ function addGenreButtons(data) {
                 //clone template and add to .genre-buttons 
         const template = document.querySelector(".genre_button").content; 
         const clone = template.cloneNode(true); 
-        clone.querySelector("button").textContent = genre; 
+        clone.querySelector("button").textContent = genre;
+        clone.querySelector("button").classList.add("remove");
         document.querySelector(".filter_genre").appendChild(clone); })
 
 }
 
-checkLocalStorage();
 
+function klikAlle(data) {
+    console.log("klik alle");
+
+    location.reload();
+}
+
+function topAlbum(data) {
+    console.log("Top Album");
+
+    const beholder = document.querySelector(".anbefalinger_cards");
+    console.log(beholder);
+    const skabelon = document.querySelector("#skabelon2").content;
+
+    data.forEach(album => {
+        if (album.topAlbum == true) {
+            console.log(album);
+            
+            const klon = skabelon.cloneNode(true);
+
+            cardNr ++;
+
+            klon.querySelector(".card_number").textContent = "#" + cardNr;
+            klon.querySelector("a").href = "albumside.html?id=" + album._id;
+            klon.querySelector(".anbefaling_img").src = "tempimgs/" + album.billede;
+            klon.querySelector("h3").textContent = album.album;
+            klon.querySelector(".card_artist").textContent = album.artist;
+
+
+            beholder.appendChild(klon);
+
+        }
+
+    });
+}
+
+checkLocalStorage();
+knapAlle.addEventListener("click", klikAlle);
+setInterval(fetchData, 1 * 60 * 1000);
     

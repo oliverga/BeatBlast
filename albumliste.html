@@ -27,49 +27,28 @@
         <section class="anbefalinger">
             <h1>Denne Uges Top Albums</h1>
             <div class="anbefalinger_cards">
-                <div class="card card_1">
-                    <a href="">
-                        <img src="tempimgs/harryshouse.jpg" alt="Album Cover">
-                        <div>
-                            <p class="card_number">#1</p>
-                            <div class="card_details">
-                                <h3 class="card_name">Harry's House</h3>
-                                <p class="card_artist">Harry Styles</p>
+                <template id="skabelon2">
+                    <div class="card card_1">
+                        <a href="">
+                            <img class="anbefaling_img" src="tempimgs/harryshouse.jpg" alt="Album Cover">
+                            <div>
+                                <p class="card_number">#1</p>
+                                <div class="card_details">
+                                    <h3 class="card_name">Harry's House</h3>
+                                    <p class="card_artist">Harry Styles</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card card_2">
-                    <a href="">
-                        <img src="tempimgs/harryshouse.jpg" alt="Album Cover">
-                        <div>
-                            <p class="card_number">#2</p>
-                            <div class="card_details">
-                                <h3 class="card_name">Harry's House</h3>
-                                <p class="card_artist">Harry Styles</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card card_3">
-                    <a href="">
-                        <img src="tempimgs/harryshouse.jpg" alt="Album Cover">
-                        <div>
-                            <p class="card_number">#3</p>
-                            <div class="card_details">
-                                <h3 class="card_name">Harry's House</h3>
-                                <p class="card_artist">Harry Styles</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                </template>
             </div>
         </section>
-        <h2>Alle Albums</h2>
+        <h2>Genre</h2>
         <nav class="filter_genre">
             <template class="genre_button">
                 <button></button>
             </template>
+            <button id="all_albums" class="knap_active">Alle Albums</button>
         </nav>
         <div class="album_liste">
             
