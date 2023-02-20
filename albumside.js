@@ -101,6 +101,7 @@ function addToDom(data) {
         let date = album.dato.split("T")[0];
         document.querySelector(".info-dato").textContent = date;
         document.querySelector(".info-label").textContent = album.label;
+        document.querySelector(".info-genre").href = "genre.html?genre=" + album.genre;
         document.querySelector(".info-genre").textContent = album.genre;
         document.querySelector(".info-sprog").textContent = album.sprog;
 
