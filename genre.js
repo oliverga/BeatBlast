@@ -40,6 +40,7 @@ async function checkLocalStorage() {
 }
 
 function displayGenre(data) {
+  document.title = genre;
     data.forEach(album => {
         if(album.genre == genre) {
             document.querySelector("h1").textContent = album.genre;
