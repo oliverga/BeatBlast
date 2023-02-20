@@ -122,7 +122,7 @@ h2 {
 }
 
 .music-notes-container svg path, .music-notes-container svg rect {
-    fill: var(--color2);
+    fill: var(--color3);
 }
 
 .header-container {
@@ -314,18 +314,18 @@ display: none;
 .genre-albums-list {
     display: grid;
     /* grid template columns min max */
-    grid-template-columns: repeat(auto-fit, minmax(70vw, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
     max-width: 1200px;
     margin-bottom: 10rem;
     margin-inline: auto;
-    column-gap: 2rem;
+    column-gap: 1rem;
     row-gap: 4rem;
     padding: 0 2rem;
     justify-items: center;
     list-style: none;
 }
 .genre-albums-list img {
-    width: 70vw;
+    width: 30vw;
     cursor: pointer;
 }
 

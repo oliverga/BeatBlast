@@ -91,19 +91,19 @@ h2 {
 .collection-container {
     display: grid;
     /* grid template columns min max */
-    grid-template-columns: repeat(auto-fit, minmax(70vw, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr));
     max-width: 1200px;
     margin-bottom: 10rem;
     margin-inline: auto;
     column-gap: 2rem;
-    row-gap: 4rem;
+    row-gap: 2rem;
     padding: 0 2rem;
     justify-items: center;
     list-style: none;
 }
 
 .collection-container img {
-    width: 70vw;
+    width: 30vw;
     cursor: pointer;
 }
 

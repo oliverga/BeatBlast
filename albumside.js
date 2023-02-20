@@ -5,15 +5,17 @@ const options = {
         'x-apikey': '63eb5946478852088da68231'
     }
 }
-const tempUrl = "/temp.json";
+// const tempUrl = "/temp.json";
 const openUrl = new URL(window.location.href);
 let id = openUrl.searchParams.get("id");
 let coverurl;
 let spotifyId;
 let albumGenre;
 const template = document.querySelector("#genre-album-template");
-const localData = JSON.parse(localStorage.getItem("albumData"));
 let collection = [];
+
+const localData = JSON.parse(localStorage.getItem("albumData"));
+
 
 async function fetchData() {
   const response = await fetch(apiUrl, options);
@@ -25,6 +27,8 @@ async function fetchData() {
   }
   return data;
 }
+
+
 
 async function checkLocalStorage() {
   // check if data is in local storage
@@ -45,6 +49,9 @@ async function checkLocalStorage() {
   }
 }
 
+
+
+
 function addGenreAlbums(data) {
   // loop through data
   data.forEach(album => {
@@ -62,12 +69,16 @@ function addGenreAlbums(data) {
   })
 }
 
+
+
+
 function addToDom(data) {
   // loop through data // timeout is temporary until animations are done
   setTimeout(() => {
     data.forEach(album => {
       // if _id == id then show album on page
       if (album._id == id) {
+        createNotesFromTemplate();
         document.title = album.album;
         albumGenre = album.genre;
         // split album.billede into just filename and add to coverurl
@@ -95,14 +106,17 @@ function addToDom(data) {
 
         displayAnimation();
         checkCollection();
-        // return data so it can be used in other functions
         addGenreAlbums(data);
       }
     })
   }, 000);
 }
 
+
+
+
 function displayAnimation() {
+
     if (window.innerWidth > 800) {
     document.querySelector(".vinyl-record").animate(
       [
@@ -116,6 +130,7 @@ function displayAnimation() {
       }
     )
   }
+
   else if (window.innerWidth < 800) {
     document.querySelector(".vinyl-record").animate(
       [
@@ -129,7 +144,7 @@ function displayAnimation() {
       }
     )
   }
-  // animate .viny-record-base to rotate continuously
+
   document.querySelector(".vinyl-record-base").animate(
     [
       {transform: "rotate(0deg)"},
@@ -142,7 +157,6 @@ function displayAnimation() {
     }
   )
 
-
   document.querySelector(".albumcover-container").animate(
     [
       {transform: "scale(0.90)"},
@@ -154,6 +168,7 @@ function displayAnimation() {
       fill: "forwards"
     }
   )
+
   setTimeout(() => {
     document.querySelector(".loader").classList.add("hide");
     document.querySelector("main").animate(
@@ -171,10 +186,10 @@ function displayAnimation() {
 
 }
 
-// if button with data-testid="play-pause-button" is clicked then add album to collection
-document.querySelector("button").addEventListener("click", () => {
-  console.log("clicked");
-})
+
+
+
+
 
 // ColorThief stuff
 const coverImg = new Image();
@@ -206,6 +221,35 @@ coverImg.onload = function() {
   document.querySelector(".vinyl-center").style.background = `radial-gradient(circle at 50% 50%, var(--color4) 0%, var(--color2) 100%)`;
 
 };
+
+
+
+// get genres from json and add to dom as buttons in .genre-buttons
+function addGenreButtons(data) {
+  // create array to hold genres
+  let genres = [];
+  // loop through data
+  data.forEach(album => {
+    // if genre is not in genres array, add it
+    if (!genres.includes(album.genre)) {
+      genres.push(album.genre);
+    }
+  })
+  // sort genres alphabetically
+  genres.sort();
+  // loop through genres
+  genres.forEach(genre => {
+    // clone template and add to .genre-buttons
+    const template = document.querySelector("template.genre-button").content;
+    const clone = template.cloneNode(true);
+    clone.querySelector("button").textContent = genre;
+    document.querySelector(".genre-buttons").appendChild(clone);
+  })
+}
+
+
+
+
 
 // collection stuff
 function checkCollection() {
@@ -325,11 +369,18 @@ document.querySelector(".add-to-collection").addEventListener("click", () => {
   return;
 })
 
+
+
+
+
+
+
+
 // note animation stuff
 const note1Template = document.querySelector('#note1-template');
 const note2Template = document.querySelector('#note2-template');
 const notesContainer = document.querySelector('.music-notes-container');
-const numNotes = 4;
+const numNotes = 6;
 
 function createNotesFromTemplate() {
   for(let i = 0; i < numNotes; i++) {
@@ -345,7 +396,6 @@ function createNotesFromTemplate() {
       // make randomx 2/3 width of container and centered
       randomX = Math.floor(Math.random() * (containerWidth / 3)) + (containerWidth / 3);
     }
-    console.log(randomX)
     note1.querySelector('.music-note').style.left = randomX;
     note2.querySelector('.music-note').style.left = randomX;
     notesContainer.appendChild(note1);
@@ -389,7 +439,7 @@ function animateNotes() {
 }
 
 
-createNotesFromTemplate();
+
 
 checkLocalStorage();
 
