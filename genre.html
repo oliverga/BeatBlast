@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="collection.css">
+    <link rel="stylesheet" href="genre.css">
     <link rel="stylesheet" href="https://use.typekit.net/ljv0dkm.css">
 </head>
 <body>
@@ -14,10 +14,17 @@
             <a href="albumliste.html" class="logo">
                 <img src="svg/logo-white.svg" alt="">
             </a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="collection.html">Din Collection</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
     <main>
-        <template id="collection-template">
+        <template id="genre-template">
             <div class="album-card">
                 <a class="album">
                     <img src="" alt="">
@@ -27,16 +34,16 @@
             </div>
         </template>
         <section>
-            <h1>Din Collection</h1>
-            <div class="collection-container">
+            <h1></h1>
+            <div class="genre-container">
 
             </div>
         </section>
-
-    </main>
-    <div class="shadow"></div>
+    </main> 
     <div class="bg"></div>
+    <div class="shadow"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.0.1/color-thief.min.js"></script>
-    <script src="collection.js"></script>
+    <script src="genre.js"></script>
+    </main>
 </body>
 </html>

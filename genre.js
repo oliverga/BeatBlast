@@ -1,6 +1,10 @@
-const template = document.querySelector("#collection-template");
-const container = document.querySelector(".collection-container");
-let collection = JSON.parse(localStorage.getItem("collection"));
+const urlParams = new URLSearchParams(window.location.search);
+const genre = urlParams.get("genre");
+
+
+const template = document.querySelector("#genre-template");
+const container = document.querySelector(".genre-container");
+
 const localData = JSON.parse(localStorage.getItem("albumData"));
 
 const apiUrl = "https://albumliste-d3cb.restdb.io/rest/album";
@@ -21,7 +25,7 @@ async function checkLocalStorage() {
     if (localData) {
       console.log("Data retrieved from local storage");
       // if so, add data to DOM
-      displayCollection(localData);
+      displayGenre(localData);
     }
     else {
       // if not, fetch data from API
@@ -31,19 +35,14 @@ async function checkLocalStorage() {
       localStorage.setItem("albumData", JSON.stringify(latestData));
       console.log("Data updated in local storage");
       // add data to DOM
-      displayCollection(latestData);
+      displayGenre(latestData);
     }
-  }
+}
 
-// display collection from local storage on page load
-function displayCollection(data) {
-  if (!collection || collection.length == 0) {
-    console.log("Collection is empty");
-    return;
-  }
-  else {
+function displayGenre(data) {
     data.forEach(album => {
-        if(collection.includes(album._id)) {
+        if(album.genre == genre) {
+            document.querySelector("h1").textContent = album.genre;
             const clone = template.content.cloneNode(true);
             clone.querySelector("img").src = "tempimgs/" + album.billede;
             clone.querySelector("a").href = "albumside.html?id=" + album._id;
@@ -52,21 +51,20 @@ function displayCollection(data) {
             container.appendChild(clone);
         }
     })
-  }
-  setTimeout(() => {
+    setTimeout(() => {
     document.querySelector("main").animate(
-      [
+        [
         {opacity: "0"},
         {opacity: "1"}
-      ],
-      {
+        ],
+        {
         duration: 550,
         easing: "ease-in-out",
         fill: "forwards"
-      }
+        }
     )
-  }, 100);
-  
+    }, 100);
+
   const albums = document.querySelectorAll(".album");
   albums.forEach(album => {
     album.addEventListener("mouseover", () => {
@@ -86,13 +84,7 @@ function displayCollection(data) {
   });
 }
 
-      
 
+  checkLocalStorage();
 
-
-
-
-
-
-// on load display collection
-checkLocalStorage();
+  // get parameter from url
