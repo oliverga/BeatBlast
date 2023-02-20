@@ -256,6 +256,8 @@ h2 {
     font-size: 1.5rem;
     font-weight: 100;
     margin-bottom: 3rem;
+    text-align: center;
+    line-height: normal;
 }
 
 
@@ -361,7 +363,25 @@ display: none;
     scale: 1.02;
 }
 
+.album-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 1rem;
+}
 
+.album-card .album-titel {
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-weight: 500;
+    margin-bottom: -0.5rem;
+}
+
+.album-card .album-artist {
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin-bottom: 0;
+}
 
 
 
@@ -501,6 +521,8 @@ display: none;
         font-size: 1.2rem;
         font-weight: 100;
         margin-bottom: 2rem;
+        text-align: center;
+        line-height: normal;
     }
 
     .album-info {
@@ -566,5 +588,25 @@ display: none;
 
     .genre-albums-list a:hover {
         scale: 1.02;
+    }
+
+    .album-card {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        border-radius: 1rem;
+    }
+    
+    .album-card .album-titel {
+        font-size: 1rem;
+        margin-top: 1rem;
+        font-weight: 500;
+        margin-bottom: -0.5rem;
+    }
+    
+    .album-card .album-artist {
+        font-size: 0.8rem;
+        font-weight: 200;
+        margin-bottom: 0;
     }
 }

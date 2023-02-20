@@ -63,6 +63,8 @@ function addGenreAlbums(data) {
       const clone = template.content.cloneNode(true);
       clone.querySelector("img").src = genreCoverUrl;
       clone.querySelector("a").href = "albumside.html?id=" + album._id;
+      clone.querySelector(".album-titel").textContent = album.album;
+      clone.querySelector(".album-artist").textContent = album.artist;
       document.querySelector(".genre-albums-list").appendChild(clone);
       return;
     }
@@ -223,30 +225,6 @@ coverImg.onload = function() {
 
 };
 
-
-
-// get genres from json and add to dom as buttons in .genre-buttons
-function addGenreButtons(data) {
-  // create array to hold genres
-  let genres = [];
-  // loop through data
-  data.forEach(album => {
-    // if genre is not in genres array, add it
-    if (!genres.includes(album.genre)) {
-      genres.push(album.genre);
-    }
-  })
-  // sort genres alphabetically
-  genres.sort();
-  // loop through genres
-  genres.forEach(genre => {
-    // clone template and add to .genre-buttons
-    const template = document.querySelector("template.genre-button").content;
-    const clone = template.cloneNode(true);
-    clone.querySelector("button").textContent = genre;
-    document.querySelector(".genre-buttons").appendChild(clone);
-  })
-}
 
 
 
