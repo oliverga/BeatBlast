@@ -170,7 +170,7 @@ function displayAnimation() {
   )
 
   setTimeout(() => {
-    document.querySelector(".loader").classList.add("hide");
+    // document.querySelector(".loader").classList.add("hide");
     document.querySelector("main").animate(
       [
         {opacity: "0"},

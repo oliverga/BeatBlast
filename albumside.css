@@ -92,7 +92,8 @@ h2 {
     justify-content: center;
     align-items: center;
     transition: opacity 0.4s ease-in-out;
-    opacity: 20%;
+    opacity: 0%;
+    display: none;
     pointer-events: none;
 }
 
@@ -173,6 +174,13 @@ h2 {
     display: grid;
     grid-template-rows: 35vw 35vw 35vw;
     grid-template-columns: auto;
+    /* make non-selectable */
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .album-cover {
@@ -206,13 +214,25 @@ h2 {
 
 .vinyl-center {
     aspect-ratio: 1/1;
-    height: 23vw;
+    height: 21vw;
     border-radius: 50%;
     z-index: 2;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.vinyl-hole {
+    aspect-ratio: 1/1;
+    height: 3vw;
+    border-radius: 50%;
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at bottom right, #000000 0%, #313131 140%);
 }
 
 .album-data {
@@ -443,6 +463,18 @@ display: none;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    .vinyl-hole {
+        aspect-ratio: 1/1;
+        height: 0.8rem;
+        border-radius: 50%;
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(ellipse at bottom right, #000000 0%, #313131 140%);
     }
 
     .album-data {
