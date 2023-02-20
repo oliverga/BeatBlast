@@ -82,7 +82,7 @@ function vis(data) {
 function filterGenre(data) {
     console.log("Filter Genre");
 
-    document.querySelectorAll("button").forEach(knap => {
+    document.querySelectorAll(".lyt").forEach(knap => {
         knap.addEventListener("click", () => {
             const knapper = document.querySelectorAll("button");
             knapper.forEach(knap =>{
@@ -138,7 +138,7 @@ function addGenreButtons(data) {
         const template = document.querySelector(".genre_button").content; 
         const clone = template.cloneNode(true); 
         clone.querySelector("button").textContent = genre;
-        clone.querySelector("button").classList.add("remove");
+        clone.querySelector("button").classList.add("lyt");
         document.querySelector(".filter_genre").appendChild(clone); })
 
 }

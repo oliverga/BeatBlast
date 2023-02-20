@@ -7,6 +7,7 @@
     <title>Album Liste</title>
     <link rel="stylesheet" href="albumliste.css">
     <link rel="stylesheet" href="https://use.typekit.net/ljv0dkm.css">
+    <link rel="stylesheet" href="generel.css">
 </head>
 <body>
     <header>
@@ -48,7 +49,7 @@
             <template class="genre_button">
                 <button></button>
             </template>
-            <button id="all_albums" class="knap_active">Alle Albums</button>
+            <button id="all_albums" class="knap_active lyt">Alle Albums</button>
         </nav>
         <div class="album_liste">
             
@@ -57,7 +58,7 @@
     <footer>
         <section>
             <h4>Mangler der et Album?</h4>
-            <form name="kontakt" >
+            <form name="kontakt" id="myForm">
                 <label class="small_line">
                     Album
                     <input placeholder="fx Thriller" type="text" name="album" required>
@@ -70,7 +71,7 @@
                     Begrundelse (valgfri)
                     <textarea placeholder="Jeg finder dette album yderst interresant fordi..." name="begrundelse" rows="5"></textarea>
                 </label>
-                <button id="knap_kontakt">Send</button>
+                <button type="submit" id="knap_kontakt">Send</button>
             </form>
         </section>
     </footer>
@@ -93,5 +94,6 @@
         </article>
     </template>
     <script src="albumliste.js"></script>
+    <script src="form.js"></script>
 </body>
 </html>
