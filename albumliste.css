@@ -271,6 +271,65 @@ h2 {
     transition: 0.5s;
 }
 
+/* ---------------- footer -------------------------- */
+
+footer section {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #3B1F44;
+    border-radius: 10px;
+
+    padding: 20px;
+
+    margin-top: 60px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h4 {
+    font-size: 1.3rem;
+
+    text-align: center;
+}
+
+
+form label {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10px;
+
+    color: #d9d9d9;
+}
+
+.small_line {
+    width: 50%;
+}
+
+input, textarea {
+
+    border: solid 1px var(--main-color);
+    border-radius: 15px;
+    background-color: transparent;
+    color: var(--color-text);
+
+    padding: 10px;
+
+    resize: none;
+}
+
+#knap_kontakt {
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 10px;
+
+    margin-top: 10px;
+
+    font-size: 1.2rem;
+}
+
 
 /* ---------------- Responsivitet ----------------- */
 
@@ -366,4 +425,16 @@ h2 {
     .album:hover .album_vinyl {
         transform: translateY(-70px) rotate(1800deg);
     }
+
+    /* --------------- footer -------------------- */
+
+    footer section {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
 }
