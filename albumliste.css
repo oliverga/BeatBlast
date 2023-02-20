@@ -35,16 +35,34 @@ body {
 
 
 /* ------------ Header menu ------------------ */
-
-header a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 300;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem;
+    padding: 0 0rem;
+    /* background-color: bisque; */
 }
-header li a:hover {
-    scale: 1.02;
+
+.header-container a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.header-container nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.logo img {
+    width: 12rem;
 }
 
 /* ----------------- Anbefalede Albums -------------- */

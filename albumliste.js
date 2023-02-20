@@ -1,39 +1,72 @@
 console.log("Test af Konsol");
 
 const tempURL = "/temp.json";
+const localData = JSON.parse(localStorage.getItem("albumData"));
 
 let artikler
 
 
-
-
-
-async function getData() {
-    const resultat = await fetch(tempURL);
-    const liste = await resultat.json();
-
-    vis(liste);
-    addGenreButtons(liste);
-    filterGenre(liste);
-    
+const apiUrl = "https://albumliste-d3cb.restdb.io/rest/album";
+const options = {
+    headers: {
+        'x-apikey': '63eb5946478852088da68231'
+    }
 }
 
-function vis(liste) {
-    console.log("Vis Liste");
-    console.log(liste)
+async function fetchData() {
+    const response = await fetch(apiUrl, options);
+    const data = await response.json();
+    // if data is different from localData then update localData
+    if (!localData || JSON.stringify(localData) !== JSON.stringify(data)) {
+      localStorage.setItem("albumData", JSON.stringify(data));
+      console.log("Data updated in local storage");
+    }
+    return data;
+  }
+  
+  
+  
+  async function checkLocalStorage() {
+    // check if data is in local storage
+    if (localData) {
+      console.log("Data retrieved from local storage");
+      // if so, add data to DOM
+      vis(localData);
+        addGenreButtons(localData);
+        filterGenre(localData);
+    }
+    else {
+      // if not, fetch data from API
+      const latestData = await fetchData();
+      console.log("Data retrieved from API");
+      // update local storage with new data
+      localStorage.setItem("albumData", JSON.stringify(latestData));
+      console.log("Data updated in local storage");
+      // add data to DOM
+      vis(latestData);
+        addGenreButtons(latestData);
+        filterGenre(latestData);
+    }
+  }
+
+
+function vis(data) {
+    console.log("Vis localData");
+    console.log(localData)
 
     const beholder = document.querySelector(".album_liste");
     const skabelon = document.querySelector("#skabelon").content;
 
-    liste.forEach(album => {
+    data.forEach(album => {
         const klon = skabelon.cloneNode(true);
         
         klon.querySelector("a").href = "albumside.html?id=" + album._id;
-        klon.querySelector(".album_img").src = "tempimgs/" + album.billede.split(".")[0] + ".jpg";
+        klon.querySelector(".album_img").src = "tempimgs/" + album.billede;
         klon.querySelector("h3").textContent = album.album;
         klon.querySelector(".album_artist").textContent = album.artist;
         klon.querySelector(".album_genre").textContent = album.genre;
-        klon.querySelector(".album_date").textContent = album.dato
+        let date = album.dato.split("T")[0];
+        klon.querySelector(".album_date").textContent = date
         
 
         beholder.appendChild(klon);
@@ -43,21 +76,8 @@ function vis(liste) {
     });
 }
 
-window.addEventListener("load", go);
 
-function go() {
-    console.log("go");
-    getData();
-
-}
-
-
-
-
-
-
-
-function filterGenre(liste) {
+function filterGenre(data) {
     console.log("Filter Genre");
 
     document.querySelectorAll("button").forEach(knap => {
@@ -70,18 +90,19 @@ function filterGenre(liste) {
             artikler = document.querySelectorAll("article");
             artikler.forEach(artikel => artikel.remove());
 
-            liste.forEach(album => {
+            data.forEach(album => {
                 if (album.genre == genre) {
                     
                     
                     const klon = skabelon.cloneNode(true);
 
                     klon.querySelector("a").href = "albumside.html?id=" + album._id;
-                    klon.querySelector(".album_img").src = "tempimgs/" + album.billede.split(".")[0] + ".jpg";
+                    klon.querySelector(".album_img").src = "tempimgs/" + album.billede;
                     klon.querySelector("h3").textContent = album.album;
                     klon.querySelector(".album_artist").textContent = album.artist;
                     klon.querySelector(".album_genre").textContent = album.genre;
-                    klon.querySelector(".album_date").textContent = album.dato
+                    let date = album.dato.split("T")[0];
+                    klon.querySelector(".album_date").textContent = date
         
 
                     beholder.appendChild(klon);
@@ -92,11 +113,11 @@ function filterGenre(liste) {
     })
 }
 
-function addGenreButtons(liste) {  
+function addGenreButtons(data) {  
     //create array to hold genres 
     let genres = [];  
     //loop through data 
-    liste.forEach(album => {  
+    data.forEach(album => {  
         //if genre is not in genres array, add it 
         if (!genres.includes(album.genre)) { 
             genres.push(album.genre); } })  
@@ -109,5 +130,7 @@ function addGenreButtons(liste) {
         document.querySelector(".filter_genre").appendChild(clone); })
 
 }
+
+checkLocalStorage();
 
     
