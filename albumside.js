@@ -200,12 +200,10 @@ coverImg.onload = function() {
   // Image is fully loaded, now create a ColorThief instance and get the color palette
   const colorThief = new ColorThief();
   const palette = colorThief.getPalette(coverImg, 10);
-
   // for each color in palette, set css variable to that color
   palette.forEach((color, index) => {
     document.documentElement.style.setProperty(`--color${index + 1}`, `rgb(${color[0]}, ${color[1]}, ${color[2]})`);
   });
-
   // add gradient to background and set opacity to 1
   document.querySelector(".bg").style.background = `linear-gradient(135deg, var(--color1) -50%, rgb(0, 0, 0) 120%)`;
   document.querySelector(".bg").animate (
@@ -219,10 +217,8 @@ coverImg.onload = function() {
       fill: "forwards"
     }
   )
-  
   // give .vinyl-center a background radial gradient with 2 of the colors from the palette
   document.querySelector(".vinyl-center").style.background = `radial-gradient(circle at 50% 50%, var(--color4) 0%, var(--color2) 100%)`;
-
 };
 
 

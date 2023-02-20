@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="genre.css">
     <link rel="stylesheet" href="https://use.typekit.net/ljv0dkm.css">
+    <link rel="stylesheet" href="generel.css">
 </head>
 <body>
     <header>
@@ -40,10 +41,31 @@
             </div>
         </section>
     </main> 
+    <footer>
+        <section>
+            <h4>Mangler der et Album?</h4>
+            <form name="kontakt" id="myForm">
+                <label class="small_line">
+                    Album
+                    <input placeholder="fx Thriller" type="text" name="album" required>
+                </label>
+                <label class="small_line">
+                    Artist
+                    <input placeholder="fx Michael Jackson" type="text" name="artist" required>
+                </label>
+                <label>
+                    Begrundelse (valgfri)
+                    <textarea placeholder="Jeg finder dette album yderst interresant fordi..." name="begrundelse" rows="5"></textarea>
+                </label>
+                <button type="submit" id="knap_kontakt">Send</button>
+            </form>
+        </section>
+    </footer>
     <div class="bg"></div>
     <div class="shadow"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.0.1/color-thief.min.js"></script>
     <script src="genre.js"></script>
+    <script src="form.js"></script>
     </main>
 </body>
 </html>

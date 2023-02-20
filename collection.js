@@ -60,11 +60,27 @@ function displayCollection(data) {
         {opacity: "1"}
       ],
       {
-        duration: 550,
+        duration: 250,
         easing: "ease-in-out",
         fill: "forwards"
       }
     )
+    // make album-cards fade in one by one
+    const albums = document.querySelectorAll(".album-card");
+    albums.forEach((album, i) => {
+      album.animate(
+        [
+          {opacity: "0"},
+          {opacity: "1"}
+        ],
+        {
+          duration: 300,
+          easing: "ease-in-out",
+          fill: "forwards",
+          delay: 50 * i
+        }
+      )
+    });
   }, 100);
   
   const albums = document.querySelectorAll(".album");
@@ -76,7 +92,7 @@ function displayCollection(data) {
       
       // update the background property with the dominant color
       document.querySelector(".bg").style.backgroundColor = `rgb(${palette[0][0]}, ${palette[0][1]}, ${palette[0][2]})`;
-      document.querySelector(".bg").style.transition = "background-color 1s ease-in-out";
+      document.querySelector(".bg").style.transition = "background-color 1.5s ease-in-out";
 
     });
     album.addEventListener("mouseleave", () => {
