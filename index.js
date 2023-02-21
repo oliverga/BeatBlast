@@ -197,6 +197,6 @@ checkLocalStorage();
 knapAlle.addEventListener("click", klikAlle);
 
 //Henter data hver time 
-setInterval(fetchData, 60 * 60 * 1000);
+setInterval(fetchData, 1 * 60 * 1000);
     
 
