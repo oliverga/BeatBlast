@@ -1,14 +1,42 @@
+html {
+    --main-color: #B469FF;
+    --color-text: #EFEFEF;
+    --secondary-color-text: #989898;
+}
+
+.bg {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+    background-color: #3B1F44;
+} 
+
+.shadow {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.209) 0%, black 160%)
+}
+
 /* ---------------- footer -------------------------- */
 
 footer section {
     display: flex;
     flex-direction: column;
-
+    font-family: "Inter", system-ui;
     background-color: #3B1F44;
     border-radius: 10px;
-
     padding: 20px;
-
     margin-top: 60px;
     margin-bottom: 40px;
     margin-left: 20px;
@@ -18,7 +46,6 @@ footer section {
 h4 {
     font-size: 1.3rem;
     font-weight: 300;
-
     text-align: center;
 }
 
@@ -26,10 +53,8 @@ h4 {
 form label {
     display: flex;
     flex-direction: column;
-
-    margin-top: 10px;
-
-    color: #d9d9d9;
+    margin-bottom: 2rem;
+    color: var(--color-text);
 }
 
 .small_line {
@@ -37,16 +62,15 @@ form label {
 }
 
 input, textarea {
-
     border: solid 1px var(--main-color);
     border-radius: 15px;
     background-color: transparent;
     color: var(--color-text);
-
-    padding: 10px;
-
+    padding: 0.8rem 1rem;
     resize: none;
+    margin-top: 0.5rem;
 }
+
 
 input:focus-within,
 textarea:focus-within {
@@ -62,10 +86,9 @@ textarea:focus {
 #knap_kontakt {
     background-color: var(--main-color);
     border: none;
+    color: var(--color-text);
     border-radius: 10px;
-
-    margin-top: 10px;
-
+    padding: 0.7rem 1rem;
     font-size: 1.2rem;
 }
 
@@ -81,28 +104,28 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .popup {
+}
+
+.popup {
     background-color: var(--main-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative;
-  }
+}
 
-  .popup + p {
-    font-size: 1.3rem;
-  }
-  
-  .close-btn {
+.popup + p {
+font-size: 1.3rem;  
+}
+
+.close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-  }
+}
   
 
 
