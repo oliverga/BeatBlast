@@ -13,12 +13,12 @@ let spotifyId;
 let albumGenre;
 const template = document.querySelector("#genre-album-template");
 let collection = [];
-
+const tempData = "/temp.json";
 const localData = JSON.parse(localStorage.getItem("albumData"));
 
 
 async function fetchData() {
-  const response = await fetch(apiUrl, options);
+  const response = await fetch(tempData);
   const data = await response.json();
   // if data is different from localData then update localData
   if (!localData || JSON.stringify(localData) !== JSON.stringify(data)) {

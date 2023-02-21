@@ -2,7 +2,7 @@ const template = document.querySelector("#collection-template");
 const container = document.querySelector(".collection-container");
 let collection = JSON.parse(localStorage.getItem("collection"));
 const localData = JSON.parse(localStorage.getItem("albumData"));
-
+const tempData = "/temp.json";
 const apiUrl = "https://albumliste-d3cb.restdb.io/rest/album";
 const options = {
     headers: {
@@ -11,7 +11,7 @@ const options = {
 }
 
 async function fetchData() {
-    const response = await fetch(apiUrl, options);
+    const response = await fetch(tempData);
     const data = await response.json();
     return data;
 }
