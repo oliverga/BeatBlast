@@ -1,6 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
 const genre = urlParams.get("genre");
 
+const tempData = "/temp.json"
+
 
 const template = document.querySelector("#genre-template");
 const container = document.querySelector(".genre-container");
@@ -15,7 +17,7 @@ const options = {
 }
 
 async function fetchData() {
-    const response = await fetch(apiUrl, options);
+    const response = await fetch(tempData);
     const data = await response.json();
     return data;
 }
