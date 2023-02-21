@@ -258,8 +258,8 @@ document.querySelector(".add-to-collection").addEventListener("click", () => {
     localStorage.setItem("collection", JSON.stringify(collection));
     console.log("Album removed from collection");
         // alert user that album has been removed to collection with a popup
-        document.querySelector(".popup").textContent = "Album fjernet fra Collection";
-        document.querySelector(".popup").animate(
+        document.querySelector(".popup-besked").textContent = "Album fjernet fra Collection";
+        document.querySelector(".popup-besked").animate(
           [
             {opacity: "0"},
             {opacity: "1"},
