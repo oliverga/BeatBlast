@@ -1,5 +1,6 @@
 console.log("Test af Konsol");
 
+// Definering af konstanter samt variabler til senere brug
 const tempURL = "/temp.json";
 const localData = JSON.parse(localStorage.getItem("albumData"));
 const knapAlle = document.querySelector("#all_albums");
@@ -8,6 +9,7 @@ let cardNr = 0;
 let artikler
 
 
+// link samt apikey til Restdb database
 const apiUrl = "https://albumliste-d3cb.restdb.io/rest/album";
 const options = {
     headers: {
@@ -15,6 +17,7 @@ const options = {
     }
 }
 
+// Vi henter data fra Restdb som JSON, yderligere
 async function fetchData() {
     const response = await fetch(apiUrl, options);
     const data = await response.json();
