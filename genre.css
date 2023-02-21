@@ -176,6 +176,10 @@ h2 {
     transition: opacity 0.8s ease-in-out;
 }
 
+.footer-form {
+    opacity: 0;
+}
+
 @media (min-width: 800px) {
 
     body {

@@ -79,6 +79,19 @@ function displayGenre(data) {
         }
       )
     });
+    setTimeout(() => {
+      document.querySelector(".footer-form").animate(
+        [
+          {opacity: "0"},
+          {opacity: "1"}
+        ],
+        {
+          duration: 250,
+          easing: "ease-in-out",
+          fill: "forwards"
+        }
+      )
+    }, 500);
     }, 100);
 
   const albums = document.querySelectorAll(".album");
