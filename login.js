@@ -18,7 +18,8 @@ class Login extends HTMLElement {
         padding: 30px;
         max-width: 350px;
         width: 100% !important;
-        background-color: #F7F7F7;
+        background-color: black;
+        color: #fff;
         margin: 0 auto;
         border-radius: 2px;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
