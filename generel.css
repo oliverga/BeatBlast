@@ -1,3 +1,9 @@
+html {
+    --main-color: #B469FF;
+    --color-text: #EFEFEF;
+    --secondary-color-text: #989898;
+}
+
 /* ---------------- footer -------------------------- */
 
 footer section {
