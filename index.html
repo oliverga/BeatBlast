@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeatBlast</title>
+    <title>Album Liste</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://use.typekit.net/ljv0dkm.css">
-    <link rel="icon" href="svg/favicon.svg">
     <link rel="stylesheet" href="generel.css">
+    <link rel="icon" href="svg/favicon.svg">
+    <!-- Hotjar Tracking Code for my site -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3376388,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 </head>
 <body>
     <header>
         <div class="header-container">
-            <a href="albumliste.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="svg/logo-white.svg" alt="">
             </a>
             <nav>
@@ -26,28 +37,77 @@
         </div>
     </header>
     <main>
-        <h1>De bedste album, udvalgt til dig</h1>
-        <a href="albumliste.html" class="alle-album">Se alle album</a>
-        <section class="genre-section">
-            <h2>Gennemse efter genre</h2>
-            <nav class="filter_genre">
-                <template class="genre_button">
-                    <a href=""><button></button></a>
+        <section class="anbefalinger">
+            <h1>Denne Uges Top Albums</h1>
+            <div class="anbefalinger_cards">
+                <template id="skabelon2">
+                    <div class="card card_1">
+                        <a href="">
+                            <img class="anbefaling_img" src="tempimgs/harryshouse.jpg" alt="Album Cover">
+                            <div>
+                                <p class="card_number">#1</p>
+                                <div class="card_details">
+                                    <h3 class="card_name">Harry's House</h3>
+                                    <p class="card_artist">Harry Styles</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </template>
-            </nav>
-            <div class="album_liste">
-                
             </div>
         </section>
-        <!-- <section class="discover-section">
-            <h2>Discover</h2>
-            <h3>The best music publications</h3>
-            <div class="discover-grid"></div>
-        </section> -->
+        <h2>Genre</h2>
+        <nav class="filter_genre">
+            <template class="genre_button">
+                <button></button>
+            </template>
+            <button id="all_albums" class="knap_active lyt">Alle Albums</button>
+        </nav>
+        <div class="album_liste">
+            
+        </div>
     </main>
-    <div class="bg"></div>
+    <footer>
+        <section>
+            <h4>Mangler der et Album?</h4>
+            <form netlify name="kontakt" id="myForm">
+                <label for="album" class="small_line">
+                    Album
+                    <input id="album" placeholder="fx Thriller" type="text" name="album" required>
+                </label>
+                <label for="artist" class="small_line">
+                    Artist
+                    <input id="artist" placeholder="fx Michael Jackson" type="text" name="artist" required>
+                </label>
+                <label for="begrundelse">
+                    Begrundelse (valgfri)
+                    <textarea id="begrundelse" placeholder="Jeg finder dette album yderst interresant fordi..." name="begrundelse" rows="5"></textarea>
+                </label>
+                <button type="submit" id="knap_kontakt">Send</button>
+            </form>
+        </section>
+    </footer>
+    <template id="skabelon">
+        <article>
+            <a class="album" href="albumside.html">
+                <div class="album_cover">
+                    <img class="album_vinyl" src="img/vinyl.webp" alt="vinyl plade">
+                    <img class="album_img" src="tempimgs/harryshouse.jpg" alt="album cover">
+                </div>
+                <div class="album_details">
+                    <h3 class="album_name">Harry's House</h3>
+                    <p class="album_artist">Harry Styles</p>
+                    <div class="album_last">
+                        <p class="album_genre">Pop</p>
+                        <p class="album_date">03-30-2020</p>
+                    </div>
+                </div>
+            </a>
+        </article>
+    </template>
     <div class="shadow"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.0.1/color-thief.min.js"></script>
+    <div class="bg"></div>
     <script src="index.js"></script>
+    <script src="form.js"></script>
 </body>
 </html>
