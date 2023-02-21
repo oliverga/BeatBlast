@@ -301,8 +301,8 @@ document.querySelector(".add-to-collection").addEventListener("click", () => {
     localStorage.setItem("collection", JSON.stringify(collection));
     console.log("Album added to collection");
     // alert user that album has been added to collection with a popup
-    document.querySelector(".popup").textContent = "Album tilføjet til Collection";
-    document.querySelector(".popup").animate(
+    document.querySelector(".popup-besked").textContent = "Album tilføjet til Collection";
+    document.querySelector(".popup-besked").animate(
       [
         {opacity: "0"},
         {opacity: "1"},
