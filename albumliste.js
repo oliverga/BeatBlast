@@ -17,7 +17,7 @@ const options = {
     }
 }
 
-// Vi henter data fra Restdb som JSON, yderligere
+// Vi henter data fra Restdb som JSON, hvis dataen er anderles end den lokale gemte data, gem herefter ny data i den lokale storage 
 async function fetchData() {
     const response = await fetch(apiUrl, options);
     const data = await response.json();
@@ -30,7 +30,7 @@ async function fetchData() {
   }
   
   
-  
+// Vi tjekker lokal data, hvis der er noget i den bruger vi den. Hvis ikke, fecther vi data ved hjælp af funktionen "Fetch Data"
   async function checkLocalStorage() {
     // check if data is in local storage
     if (localData) {
@@ -57,6 +57,7 @@ async function fetchData() {
   }
 
 
+// Vi bruger data fra den lokale storage, og looper igen arrayet, hvor vi herefter kloner skabelonen med den nye data, og tilføjer til DOM'en
 function vis(data) {
     console.log("Vis localData");
 
@@ -82,6 +83,8 @@ function vis(data) {
 }
 
 
+// Vi kigger igen på data, denne gang med fokus på genre. Vi lytter på knapper med klassen "lyt".
+// hvis man klikker på en knap vil den fjerne alle artikler fra DOM'en og herefter loope igennem databasen og kloner kun album med matchende genre til det textcontent der er på knappen.
 function filterGenre(data) {
     console.log("Filter Genre");
 
@@ -126,6 +129,8 @@ function filterGenre(data) {
     })
 }
 
+
+// vi laver et array ud fra den data som vi looper igennem. på dataen kigger vi efter forskellige genre. for hver genre tilføjes en knap med klassen ".lyt"
 function addGenreButtons(data) { 
      
     //create array to hold genres 
@@ -146,13 +151,14 @@ function addGenreButtons(data) {
 
 }
 
-
-function klikAlle(data) {
+// når funktionen bliver 
+function klikAlle() {
     console.log("klik alle");
 
     location.reload();
 }
 
+// add albums to dom
 function topAlbum(data) {
     console.log("Top Album");
 
@@ -182,7 +188,11 @@ function topAlbum(data) {
     });
 }
 
+
 checkLocalStorage();
 knapAlle.addEventListener("click", klikAlle);
+
+//Henter data hver time 
 setInterval(fetchData, 60 * 60 * 1000);
     
+
