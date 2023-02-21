@@ -13,13 +13,8 @@ img {
   }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 
-html {
-    --main-color: #B469FF;
-    --color-text: #EFEFEF;
-    --secondary-color-text: #989898;
-}
+
 
 body {
     color: #fff;
@@ -41,7 +36,6 @@ body {
     align-items: center;
     margin: 0 2rem;
     padding: 0 0rem;
-    /* background-color: bisque; */
 }
 
 header {
