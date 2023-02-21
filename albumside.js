@@ -25,8 +25,15 @@ async function fetchData() {
     localStorage.setItem("albumData", JSON.stringify(data));
     console.log("Data updated in local storage");
   }
+  if (response.status !== 200) {
+    alert("Der er sket en fejl. Prøv igen senere.");
+    throw new Error("API error");
+  }
+
   return data;
 }
+
+
 
 
 
