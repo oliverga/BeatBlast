@@ -31,6 +31,7 @@ async function fetchData() {
 
 
 async function checkLocalStorage() {
+  console.log(collection)
   // check if data is in local storage
   if (localData) {
     console.log("Data retrieved from local storage");
@@ -75,44 +76,41 @@ function addGenreAlbums(data) {
 
 
 function addToDom(data) {
-  // loop through data // timeout is temporary until animations are done
-  setTimeout(() => {
-    data.forEach(album => {
-      // if _id == id then show album on page
-      if (album._id == id) {
-        createNotesFromTemplate();
-        document.title = album.album;
-        albumGenre = album.genre;
-        // split album.billede into just filename and add to coverurl
-        coverurl = "tempimgs/" + album.billede;
+  data.forEach(album => {
+    // if _id == id then show album on page
+    if (album._id == id) {
+      createNotesFromTemplate();
+      document.title = album.album;
+      albumGenre = album.genre;
+      // split album.billede into just filename and add to coverurl
+      coverurl = "tempimgs/" + album.billede;
 
-        // set coverImg src to coverurl for colorThief
-        coverImg.src = coverurl;
+      // set coverImg src to coverurl for colorThief
+      coverImg.src = coverurl;
 
-        // set album data to DOM
-        document.querySelector(".album-cover").src = coverurl;
-        document.querySelector(".album-titel").textContent = album.album;
-        document.querySelector(".album-artist").textContent = album.artist;
+      // set album data to DOM
+      document.querySelector(".album-cover").src = coverurl;
+      document.querySelector(".album-titel").textContent = album.album;
+      document.querySelector(".album-artist").textContent = album.artist;
 
-        // split album.spotifylink into just spotifyId and add to iframe src
-        spotifyId = album.spotifylink.split("album/")[1];
-        document.querySelector(".spotify-embed").src = "https://open.spotify.com/embed/album/" + spotifyId + "?utm_source=generator&theme=0";
-        document.querySelector(".spotify-link").href = "https://open.spotify.com/album/" + spotifyId + "?utm_source=generator&theme=0";
+      // split album.spotifylink into just spotifyId and add to iframe src
+      spotifyId = album.spotifylink.split("album/")[1];
+      document.querySelector(".spotify-embed").src = "https://open.spotify.com/embed/album/" + spotifyId + "?utm_source=generator&theme=0";
+      document.querySelector(".spotify-link").href = "https://open.spotify.com/album/" + spotifyId + "?utm_source=generator&theme=0";
 
-        // clone template and add to .album-info
-        let date = album.dato.split("T")[0];
-        document.querySelector(".info-dato").textContent = date;
-        document.querySelector(".info-label").textContent = album.label;
-        document.querySelector(".info-genre").href = "genre.html?genre=" + album.genre;
-        document.querySelector(".info-genre").textContent = album.genre;
-        document.querySelector(".info-sprog").textContent = album.sprog;
+      // clone template and add to .album-info
+      let date = album.dato.split("T")[0];
+      document.querySelector(".info-dato").textContent = date;
+      document.querySelector(".info-label").textContent = album.label;
+      document.querySelector(".info-genre").href = "genre.html?genre=" + album.genre;
+      document.querySelector(".info-genre").textContent = album.genre;
+      document.querySelector(".info-sprog").textContent = album.sprog;
 
-        displayAnimation();
-        checkCollection();
-        addGenreAlbums(data);
-      }
-    })
-  }, 000);
+      displayAnimation();
+      checkCollection();
+      addGenreAlbums(data);
+    }
+  })
 }
 
 
@@ -191,9 +189,6 @@ function displayAnimation() {
 
 
 
-
-
-
 // ColorThief stuff
 const coverImg = new Image();
 coverImg.onload = function() {
@@ -220,10 +215,6 @@ coverImg.onload = function() {
   // give .vinyl-center a background radial gradient with 2 of the colors from the palette
   document.querySelector(".vinyl-center").style.background = `radial-gradient(circle at 50% 50%, var(--color4) 0%, var(--color2) 100%)`;
 };
-
-
-
-
 
 
 // collection stuff
@@ -420,3 +411,4 @@ checkLocalStorage();
 
 
 setInterval(fetchData, 60 * 60 * 1000); // fetch new data every hour
+
