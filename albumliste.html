@@ -59,18 +59,18 @@
     <footer>
         <section>
             <h4>Mangler der et Album?</h4>
-            <form name="kontakt" id="myForm">
-                <label class="small_line">
+            <form netlify name="kontakt" id="myForm">
+                <label for="album" class="small_line">
                     Album
-                    <input placeholder="fx Thriller" type="text" name="album" required>
+                    <input id="album" placeholder="fx Thriller" type="text" name="album" required>
                 </label>
-                <label class="small_line">
+                <label for="artist" class="small_line">
                     Artist
-                    <input placeholder="fx Michael Jackson" type="text" name="artist" required>
+                    <input id="artist" placeholder="fx Michael Jackson" type="text" name="artist" required>
                 </label>
-                <label>
+                <label for="begrundelse">
                     Begrundelse (valgfri)
-                    <textarea placeholder="Jeg finder dette album yderst interresant fordi..." name="begrundelse" rows="5"></textarea>
+                    <textarea id="begrundelse" placeholder="Jeg finder dette album yderst interresant fordi..." name="begrundelse" rows="5"></textarea>
                 </label>
                 <button type="submit" id="knap_kontakt">Send</button>
             </form>
