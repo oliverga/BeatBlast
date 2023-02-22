@@ -89,7 +89,59 @@ function vis(data) {
         artikler = document.querySelectorAll("article");
     });
 
+    displayAnimationer();
     summary.innerText = "Viser " + summaryNr + " Albums - Ud af " + summaryNr;
+}
+
+function displayAnimationer() {
+
+    setTimeout(() => {
+          const cards = document.querySelectorAll(".card");
+          cards.forEach((card, i) => {
+              card.animate(
+                  [
+                  {opacity: "0"},
+                  {opacity: "1"}
+                  ],
+                  {
+                  duration: 300,
+                  easing: "ease-in-out",
+                  fill: "forwards",
+                  delay: 50 * i
+                  }
+              )
+          });         
+          setTimeout(() => {
+            const albums = document.querySelectorAll("article");
+            albums.forEach((album, i) => {
+              album.animate(
+                [
+                  {opacity: "0"},
+                  {opacity: "1"}
+                ],
+                {
+                  duration: 300,
+                  easing: "ease-in-out",
+                  fill: "forwards",
+                  delay: 50 * i
+                }
+              )
+            });
+          }, 150);
+        setTimeout(() => {
+            document.querySelector("main").animate(
+                [
+                  {opacity: "0"},
+                  {opacity: "1"}
+                ],
+                {
+                  duration: 250,
+                  easing: "ease-in-out",
+                  fill: "forwards"
+                }
+              )
+        }, 100);
+    }, 0);
 }
 
 
@@ -138,11 +190,27 @@ function filterGenre(data) {
                 }
 
             });
-
+            const albums = document.querySelectorAll("article");
+            albums.forEach((album, i) => {
+              album.animate(
+                [
+                  {opacity: "0"},
+                  {opacity: "1"}
+                ],
+                {
+                  duration: 300,
+                  easing: "ease-in-out",
+                  fill: "forwards",
+                  delay: 50 * i
+                }
+              )
+            });
             summary.innerText = "Viser " + summaryNr + " Albums - Ud af " + summaryNr;
         })
     })
 }
+
+
 
 
 // vi laver et array ud fra den data som vi looper igennem. på dataen kigger vi efter forskellige genre. for hver genre tilføjes en knap med klassen ".lyt"
