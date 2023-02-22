@@ -166,7 +166,7 @@ function addGenreButtons(data) {
 
 }
 
-// når funktionen bliver 
+// når funktionen bliver kaldt skal siden reloades
 function klikAlle() {
     console.log("klik alle");
 
@@ -208,6 +208,6 @@ checkLocalStorage();
 knapAlle.addEventListener("click", klikAlle);
 
 //Henter data hver time 
-setInterval(fetchData, 1 * 60 * 1000);
+setInterval(fetchData, 60 * 60 * 1000);
     
 
