@@ -372,6 +372,7 @@ function createNotesFromTemplate() {
   animateNotes();
 }
 
+
 // function to animate notes from down to up infinitely with random delay
 function animateNotes() {
   const notes = document.querySelectorAll('.music-note');
@@ -405,6 +406,8 @@ function animateNotes() {
     )
   })
 }
+
+
 
 
 
