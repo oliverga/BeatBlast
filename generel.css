@@ -27,7 +27,6 @@ body {
     height: 100%;
     z-index: -2;
     pointer-events: none;
-    background-color: #3B1F44;
 } 
 
 header {
