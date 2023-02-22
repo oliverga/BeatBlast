@@ -4,8 +4,10 @@ console.log("Test af Konsol");
 const tempURL = "/temp.json";
 const localData = JSON.parse(localStorage.getItem("albumData"));
 const knapAlle = document.querySelector("#all_albums");
+const summary = document.querySelector("#summary");
 
 let cardNr = 0;
+let summaryNr = 0;
 let artikler
 
 
@@ -64,6 +66,7 @@ async function fetchData() {
 // Vi bruger data fra den lokale storage, og looper igen arrayet, hvor vi herefter kloner skabelonen med den nye data, og tilføjer til DOM'en
 function vis(data) {
     console.log("Vis localData");
+    summaryNr = 0;
 
     const beholder = document.querySelector(".album_liste");
     const skabelon = document.querySelector("#skabelon").content;
@@ -79,11 +82,14 @@ function vis(data) {
         let date = album.dato.split("T")[0];
         klon.querySelector(".album_date").textContent = date
         
+        summaryNr++;
 
         beholder.appendChild(klon);
 
         artikler = document.querySelectorAll("article");
     });
+
+    summary.innerText = "Viser " + summaryNr + " Albums - Ud af " + summaryNr;
 }
 
 
@@ -95,6 +101,9 @@ function filterGenre(data) {
     document.querySelectorAll(".lyt").forEach(knap => {
         knap.addEventListener("click", () => {
             const knapper = document.querySelectorAll("button");
+
+            summaryNr = 0;
+
             knapper.forEach(knap =>{
                 knap.classList.remove("knap_active");
             })
@@ -112,7 +121,6 @@ function filterGenre(data) {
             data.forEach(album => {
                 if (album.genre == genre) {
                     
-                    
                     const klon = skabelon.cloneNode(true);
 
                     klon.querySelector("a").href = "albumside.html?id=" + album._id;
@@ -123,12 +131,15 @@ function filterGenre(data) {
                     let date = album.dato.split("T")[0];
                     klon.querySelector(".album_date").textContent = date
         
+                    summaryNr++;
 
                     beholder.appendChild(klon);
                     
                 }
 
             });
+
+            summary.innerText = "Viser " + summaryNr + " Albums - Ud af " + summaryNr;
         })
     })
 }

@@ -209,8 +209,13 @@ h2 {
     transition: 0.5s;
 }
 
+#summary {
+    color: var(--secondary-color-text);
+    text-align: center;
+    margin-top: 10px;
 
-
+    white-space: pre-wrap;
+}
 
 /* ---------------- Responsivitet ----------------- */
 
