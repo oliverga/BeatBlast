@@ -236,7 +236,8 @@ h2 {
 
 .album-info a {
     text-decoration: none;
-    color: var(--color3);
+    font-weight: 300;
+    color: #fff;
 }
 
 .spotify-section {
