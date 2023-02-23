@@ -131,7 +131,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-.knap_active {
+.filter_genre .knap_active {
     background-color: var(--main-color);
     color: var(--color-text);
 }
