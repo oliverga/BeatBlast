@@ -16,6 +16,10 @@ img {
     background-color: #3B1F44;
 }
 
+main {
+    opacity: 0;
+}
+
 
 /* ------------ Header menu ------------------ */
 
@@ -27,18 +31,16 @@ img {
     margin-left: 20px;
 }
 
-h1{
+h1 {
     justify-content: center;
-
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
-
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
 .card img {
-    margin-bottom: 15px;
+    margin-bottom: 2rem;
 }
 
 .card a {
@@ -61,7 +63,7 @@ h1{
 .card {
     min-width: 150px;
     max-width: 260px;
-    
+    opacity: 0;
     scroll-snap-align: start;
 }
 
@@ -77,16 +79,15 @@ h1{
     scroll-snap-type: x mandatory;
 }
 
-.card a>div {
-    margin-top: 10px;
+.card a > div {
     display: flex;
-    gap: 10px;
-
-    align-content: center;
+    gap: 1rem;
+    align-items: center;
 }
 
 .card_number {
     font-size: 2rem;
+    font-weight: 400;
 }
 
 
@@ -106,7 +107,7 @@ h1{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 1rem;
 }
 
 .filter_genre button {
@@ -116,6 +117,8 @@ h1{
     border-radius: 20px;
     padding: 5px 15px 5px 15px;
     transition: all 0.3s ease-in-out;
+    font-family: "Inter";
+    font-size: 1.2rem;
 }
 
 .filter_genre button:hover {
@@ -125,9 +128,9 @@ h1{
 
 h2 {
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 5rem;
     margin-bottom: 20px;
 }
 
@@ -141,10 +144,8 @@ h2 {
 /* ----------------- Album Liste -------------------- */
 
 .album_liste {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 60px;
-
+    margin-inline: 2rem;
+    margin-top: 5rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
 
@@ -152,6 +153,10 @@ h2 {
 
     column-gap: 40px;
     row-gap: 50px;
+}
+
+.album_liste article {
+    opacity: 0;
 }
 
 .album_liste a{
@@ -163,6 +168,7 @@ h2 {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    margin-bottom: 0.8rem;
 }
 
 .album_vinyl{
@@ -211,8 +217,9 @@ h2 {
 #summary {
     color: var(--secondary-color-text);
     text-align: center;
-    margin-top: 10px;
-
+    margin-top: 2rem;
+    font-size: small;
+    font-weight: 200;
     white-space: pre-wrap;
 }
 
@@ -268,7 +275,6 @@ h2 {
 
     .anbefalinger_cards {
         justify-content: center;
-
         gap: 80px;
     }
 
@@ -302,7 +308,7 @@ h2 {
 
     /* --------------- Album Liste ----------------- */
     .album_liste{
-        margin-top: 90px;
+        margin-top: 5rem;
         row-gap: 60px;
 
         grid-template-columns: repeat(auto-fill, minmax(150px, 230px));
