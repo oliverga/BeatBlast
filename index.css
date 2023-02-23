@@ -41,6 +41,8 @@ h1 {
 
 .card img {
     margin-bottom: 2rem;
+
+    width: 100%;
 }
 
 .card a {
@@ -186,6 +188,7 @@ h2 {
     grid-row: 1;
     grid-column: 1;
 
+    width: 100%;
     z-index: 2;
 }
 
