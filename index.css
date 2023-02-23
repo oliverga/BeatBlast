@@ -63,9 +63,10 @@ h1 {
 }
 
 .card {
+    width: 100%;
     min-width: 150px;
     max-width: 260px;
-    opacity: 0;
+
     scroll-snap-align: start;
 }
 
@@ -281,6 +282,10 @@ h2 {
     .anbefalinger_cards {
         justify-content: center;
         gap: 80px;
+
+        overflow-y: none;
+        overflow-x: none;
+        scroll-snap-type: none;
     }
 
     .card_number{
