@@ -21,7 +21,22 @@ main {
 }
 
 
-/* ------------ Header menu ------------------ */
+/* ------------ hero ------------------ */
+.copy {
+
+    text-align: center;
+
+    font-size: 1rem;
+}
+
+.copy_special {
+    margin-top: 40px;
+    color: var(--main-color);
+
+    text-align: center;
+
+    font-size: 1rem;
+}
 
 
 /* ----------------- Anbefalede Albums -------------- */
@@ -270,9 +285,23 @@ h2 {
         width: 10rem;
     }
 
+    /* ----------------- Hero ---------------------- */
+    .copy {
+        font-size: 1.5rem;
+
+        margin-top: 10px;
+    }
+
+    .copy_special{
+        font-size: 1.5rem;
+
+        margin-top: 120px;
+        
+    }
+
     /* ---------------- Anbefalede Albums -------------- */
     .anbefalinger{
-        margin-top: 150px;
+        margin-top: 60px;
     }
 
     h1 {
