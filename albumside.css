@@ -115,6 +115,7 @@ header li a:hover {
     align-items: center;
     margin-bottom: 4rem;
     display: block;
+    margin-top: 1rem;
 }
 
 .album-container {
@@ -353,6 +354,7 @@ display: none;
         margin-bottom: 7rem;
         display: block;
         padding-inline: 2rem;
+        margin-top: 0rem;
     }
 
     .album-container {
