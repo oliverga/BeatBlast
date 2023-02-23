@@ -50,7 +50,7 @@ h1 {
     color: var(--color-text);
 }
 
-.card h3 {
+.card_name {
     font-weight: 300;
     font-size: 0.7rem;
     line-height: 1rem;

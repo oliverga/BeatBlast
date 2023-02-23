@@ -263,7 +263,7 @@ function topAlbum(data) {
             klon.querySelector(".card_number").textContent = "#" + cardNr;
             klon.querySelector("a").href = "albumside.html?id=" + album._id;
             klon.querySelector(".anbefaling_img").src = "tempimgs/" + album.billede;
-            klon.querySelector("h3").textContent = album.album;
+            klon.querySelector(".card_name").textContent = album.album;
             klon.querySelector(".card_artist").textContent = album.artist;
 
 
