@@ -124,6 +124,8 @@ h1 {
 .filter_genre button:hover {
     background-color: var(--main-color);
     color: var(--color-text);
+
+    cursor: pointer;
 }
 
 h2 {
