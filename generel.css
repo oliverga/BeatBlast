@@ -36,6 +36,10 @@ header {
     margin-inline: auto;
 }
 
+header li {
+    margin-bottom: 1rem;
+}
+
 header li a {
     color: #fff;
     text-decoration: none;
@@ -197,6 +201,10 @@ font-size: 1.3rem;
         margin-top: 2rem;
         margin-bottom: 10rem;
         margin-inline: auto;
+    }
+
+    header li {
+        margin-bottom: 0rem;
     }
 
     .header-container {
