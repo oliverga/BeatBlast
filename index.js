@@ -191,20 +191,23 @@ function filterGenre(data) {
 
             });
             const albums = document.querySelectorAll("article");
-            albums.forEach((album, i) => {
-              album.animate(
-                [
-                  {opacity: "0"},
-                  {opacity: "1"}
-                ],
-                {
-                  duration: 300,
-                  easing: "ease-in-out",
-                  fill: "forwards",
-                  delay: 50 * i
-                }
-              )
-            });
+            setTimeout(() => {
+              albums.forEach((album, i) => {
+                album.animate(
+                  [
+                    {opacity: "0"},
+                    {opacity: "1"}
+                  ],
+                  {
+                    duration: 300,
+                    easing: "ease-in-out",
+                    fill: "forwards",
+                    delay: 50 * i
+                  }
+                )
+              });    
+            }, 200);
+
             summary.innerText = "Viser " + summaryNr + " Albums - Ud af " + summaryNr;
         })
     })
