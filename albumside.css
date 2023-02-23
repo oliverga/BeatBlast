@@ -18,6 +18,23 @@ h2 {
     font-size: 1.5rem;
 }
 
+header li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    cursor: pointer;
+    border: solid 1px var(--color1);
+    border-radius: 100px;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header li a:hover {
+    background-color: var(--color1);
+}
+
+
 .popup-besked {
     position: fixed;
     top: 10%;
