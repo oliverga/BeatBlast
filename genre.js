@@ -17,7 +17,7 @@ const options = {
 }
 
 async function fetchData() {
-    const response = await fetch(tempData);
+    const response = await fetch(apiUrl, options);
     const data = await response.json();
     return data;
 }

@@ -18,7 +18,7 @@ const localData = JSON.parse(localStorage.getItem("albumData"));
 
 
 async function fetchData() {
-  const response = await fetch(tempData);
+  const response = await fetch(apiUrl, options);
   const data = await response.json();
   // if data is different from localData then update localData
   if (!localData || JSON.stringify(localData) !== JSON.stringify(data)) {
